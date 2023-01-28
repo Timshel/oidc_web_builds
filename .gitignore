@@ -1,6 +1,3 @@
-builds/
-docker_builds/
-web-vault/
-
+vault/
+vw/
 *.tar.gz
-*.tar.gz.text
