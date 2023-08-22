@@ -4,11 +4,11 @@ set -x
 set -e
 
 # Commit to fetch
-VAULT_VERSION=8b9bdddf812f1e443d2d1ff1d1906c396e3afbdd
-VW_VERSION=cffdfb06f9e1faa29f1aec33759b18b35d63bf8a
+VAULT_VERSION=42cbdbd25284460c2d9f02e3bdd8df962080b4d2
+VW_VERSION=a9d33740a03a97db57bbbe1caf0809b2b4108da2
 
 # VaultWarden patch to apply
-PATCH_NAME=v2023.1.1
+PATCH_NAME=v2023.7.1
 
 rm -rf vault vw
 mkdir -p vault vw
@@ -21,7 +21,7 @@ git fetch --depth 1 origin "${VAULT_VERSION}"
 git -c advice.detachedHead=false checkout FETCH_HEAD
 cd -
 
-# Fetch vaul warden
+# Fetch vault warden
 cd vw
 git init
 git remote add origin https://github.com/dani-garcia/bw_web_builds.git
@@ -30,8 +30,8 @@ git -c advice.detachedHead=false checkout FETCH_HEAD
 cd -
 
 # Copy VW ressources
-cp -vf vw/resources/favicon.ico vault/apps/web/src/favicon.ico
-cp -vf vw/resources/* vault/apps/web/src/images/
+cp -vf vw/resources/src/favicon.ico vault/apps/web/src/favicon.ico
+cp -rvf vw/resources/src/images vault/apps/web/src/
 
 # Apply the patch
 cd vault
