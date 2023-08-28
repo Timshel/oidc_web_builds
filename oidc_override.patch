@@ -1,5 +1,5 @@
 From 72312f75f2de2061a582be99795294d73bbeac0a Mon Sep 17 00:00:00 2001
-From: Timshel <timshel@github.com>
+From: Timshel <Timshel@users.noreply.github.com>
 Date: Tue, 22 Aug 2023 16:08:12 +0200
 Subject: [PATCH] [PATCH] OIDC patch to remove org dependency
 
@@ -57,7 +57,6 @@ Subject: [PATCH] [PATCH] OIDC patch to remove org dependency
  apps/web/src/locales/vi/messages.json         |  2 +-
  apps/web/src/locales/zh_CN/messages.json      |  2 +-
  apps/web/src/locales/zh_TW/messages.json      |  2 +-
- apps/web/src/scss/styles.scss                 |  3 ---
  .../src/auth/components/sso.component.ts      | 11 +---------
  .../src/components/set-password.component.ts  | 21 ++-----------------
  56 files changed, 55 insertions(+), 96 deletions(-)
@@ -761,20 +760,6 @@ index 8ec2aac..330039a 100644
    },
    "enterpriseSingleSignOn": {
      "message": "企業單一登入"
-diff --git a/apps/web/src/scss/styles.scss b/apps/web/src/scss/styles.scss
-index 5a04932..00f8dbd 100644
---- a/apps/web/src/scss/styles.scss
-+++ b/apps/web/src/scss/styles.scss
-@@ -74,9 +74,6 @@ bit-tab-link[route="billing"] { @extend %vw-hide; }
- /* Hide any link pointing to Free Bitwarden Families */
- a[href$="/settings/sponsored-families"] { @extend %vw-hide; }
- 
--/* Hide the `Enterprise Single Sign-On` button on the login page */
--a[routerlink="/sso"] { @extend %vw-hide; }
--
- /* Hide Two-Factor menu in Organization settings */
- app-org-settings a[href$="/settings/two-factor"] { @extend %vw-hide; }
- 
 diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
 index 93f40d8..9f3f099 100644
 --- a/libs/angular/src/auth/components/sso.component.ts
