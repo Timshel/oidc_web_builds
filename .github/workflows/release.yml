@@ -52,8 +52,6 @@ jobs:
           tag_name: ${{ env.TAG_CURRENT }}
           release_name: ${{ env.TAG_CURRENT }}
           body: |
-            ${{ env.TAG_CURRENT }}
-
             ${{ env.CHANGELOG_MESSAGE }}
 
             Built using :
