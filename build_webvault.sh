@@ -3,34 +3,17 @@
 set -x
 set -e
 
-SHORT_COMMIT_HASH=$(git rev-parse --short HEAD)
+source build_versions.sh
 
-# Commit to fetch
-VAULT_VERSION=42cbdbd25284460c2d9f02e3bdd8df962080b4d2
-VW_VERSION=a9d33740a03a97db57bbbe1caf0809b2b4108da2
-
-# VaultWarden patch to apply
-PATCH_NAME=v2023.7.1
-
-rm -rf vault vw
+rm -rf vault vw oidc_button_web_vault.tar.gz oidc_override_web_vault.tar.gz
 mkdir -p vault vw
-rm -f oidc_button_web_vault.tar.gz oidc_override_web_vault.tar.gz
+rm -f
 
 # Fetch default web app
-cd vault
-git init
-git remote add origin https://github.com/bitwarden/clients.git
-git fetch --depth 1 origin "${VAULT_VERSION}"
-git -c advice.detachedHead=false checkout FETCH_HEAD
-cd -
+git clone --depth 1  --branch "$VAULT_VERSION"  https://github.com/bitwarden/clients.git vault
 
 # Fetch vault warden
-cd vw
-git init
-git remote add origin https://github.com/dani-garcia/bw_web_builds.git
-git fetch --depth 1 origin "${VW_VERSION}"
-git -c advice.detachedHead=false checkout FETCH_HEAD
-cd -
+git clone --depth 1  --branch "$VW_VERSION"  https://github.com/dani-garcia/bw_web_builds.git vw
 
 # Copy VW ressources
 cp -vf vw/resources/src/favicon.ico vault/apps/web/src/favicon.ico
@@ -55,8 +38,9 @@ tar -czvf ../../../"oidc_button_web_vault.tar.gz" web-vault --owner=0 --group=0
 rm -rf web-vault
 cd ../..
 
-# Apply the full override patch
+# Apply the override and messages patches
 git apply ../oidc_override.patch
+git apply ../oidc_messages.patch
 
 cd apps/web
 npm run dist:oss:selfhost
