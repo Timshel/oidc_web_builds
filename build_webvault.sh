@@ -27,8 +27,9 @@ git apply "../vw/patches/${PATCH_NAME}.patch"
 npm ci
 npm audit fix || true
 
-# Apply sso login button patch
+# Apply sso login button and org invite patch
 git apply ../oidc_button.patch
+git apply ../oidc_invite.patch
 
 cd apps/web
 npm run dist:oss:selfhost

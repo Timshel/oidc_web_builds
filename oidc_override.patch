@@ -2,11 +2,12 @@ Subject: [PATCH] Use /sso as default login url
 
 ---
  .../app/layout/account-switcher.component.ts  |  2 +-
+ .../auth/accept-organization.component.html   | 10 +--------
  apps/web/src/app/auth/sso.component.html      | 12 -----------
  .../src/auth/components/sso.component.ts      | 11 +---------
  .../angular/src/auth/guards/redirect.guard.ts |  2 +-
  .../src/components/set-password.component.ts  | 21 ++-----------------
- 5 files changed, 5 insertions(+), 43 deletions(-)
+ 6 files changed, 6 insertions(+), 52 deletions(-)
 
 diff --git a/apps/desktop/src/app/layout/account-switcher.component.ts b/apps/desktop/src/app/layout/account-switcher.component.ts
 index 76cff30..c85909d 100644
@@ -21,6 +22,31 @@ index 76cff30..c85909d 100644
    }
  
    private async createSwitcherAccounts(baseAccounts: {
+diff --git a/apps/web/src/app/auth/accept-organization.component.html b/apps/web/src/app/auth/accept-organization.component.html
+index 3aef47d..a72ee54 100644
+--- a/apps/web/src/app/auth/accept-organization.component.html
++++ b/apps/web/src/app/auth/accept-organization.component.html
+@@ -25,19 +25,11 @@
+           <hr />
+           <div class="d-flex">
+             <a
+-              routerLink="/login"
+-              [queryParams]="{ email: email }"
++              routerLink="/sso"
+               class="btn btn-primary btn-block"
+             >
+               {{ "logIn" | i18n }}
+             </a>
+-            <a
+-              routerLink="/register"
+-              [queryParams]="{ email: email }"
+-              class="btn btn-primary btn-block ml-2 mt-0"
+-            >
+-              {{ "createAccount" | i18n }}
+-            </a>
+           </div>
+         </div>
+       </div>
 diff --git a/apps/web/src/app/auth/sso.component.html b/apps/web/src/app/auth/sso.component.html
 index fb56cea..2569148 100644
 --- a/apps/web/src/app/auth/sso.component.html

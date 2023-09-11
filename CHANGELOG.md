@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.8.2-1
+
+ - Add [oidc_invite.patch](oidc_invite.patch) to allow orgganization invitation to persist across redirection.
+
 ## v2023.8.2
 
  - Create [oidc_messages.patch](oidc_messages.patch) to make [oidc_override.patch](oidc_override.patch) more lisible.

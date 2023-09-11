@@ -10,8 +10,8 @@ This is a repository to store custom builds of the [Bitwarden web vault](https:/
 
 This generate two different versions :
 
-- One simply restore the SSO login button ([patch](oidc_button.patch))
-- Other one set `#sso` as the default redirect url and remove some unnecessary logic ([patch](oidc_override.patch))
+- One restore the SSO login button ([patch](oidc_button.patch)) and allow organization invitation to survive sso redirection ([patch](oidc_invite.patch))
+- Other one additionally set `#sso` as the default redirect url and remove some unnecessary logic ([patch](oidc_override.patch))
 
 ## Building the web-vault
 To build the web-vault you need node and npm installed.
@@ -29,6 +29,7 @@ This will :
 - Copy ressources from the VaultWarden web vault project
 - Apply the VaultWarden web vault patch
 - Apply the button [patch](oidc_button.patch)
+- Apply the organization invite [patch](oidc_invite.patch)
 - Build the web vault application
 - Package it as `oidc_button_web_vault.tar.gz`.
 - Apply the second [patch](oidc_override.patch) to improve SSO flow
