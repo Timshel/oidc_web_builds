@@ -29,7 +29,6 @@ npm audit fix || true
 
 # Apply sso login button and org invite patch
 git apply ../oidc_button.patch
-git apply ../oidc_invite.patch
 
 cd apps/web
 npm run dist:oss:selfhost
@@ -39,7 +38,8 @@ tar -czvf ../../../"oidc_button_web_vault.tar.gz" web-vault --owner=0 --group=0
 rm -rf web-vault
 cd ../..
 
-# Apply the override and messages patches
+# Apply the invite, override and messages patches
+git apply ../oidc_invite.patch
 git apply ../oidc_override.patch
 git apply ../oidc_messages.patch
 

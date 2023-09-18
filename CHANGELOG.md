@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.8.2-2
+
+ - Apply [oidc_invite.patch](oidc_invite.patch) in the override version since it's not expected to be merged in [bw_web_builds](https://github.com/dani-garcia/bw_web_builds)).
+
 ## v2023.8.2-1
 
  - Add [oidc_invite.patch](oidc_invite.patch) to allow orgganization invitation to persist across redirection.
