@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.8.2-3
+
+ - Remove the version from release file name to facilitate downloading it using [latest](https://github.com/Timshel/oidc_web_builds/releases/latest/download/oidc_override_web_vault.tar.gz).
+
 ## v2023.8.2-2
 
  - Apply [oidc_invite.patch](oidc_invite.patch) in the override version since it's not expected to be merged in [bw_web_builds](https://github.com/dani-garcia/bw_web_builds)).
