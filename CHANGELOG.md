@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.9.1
+
+ - Upgrade to `v2023.9.1`
+
 ## v2023.8.2-3
 
  - Remove the version from release file name to facilitate downloading it using [latest](https://github.com/Timshel/oidc_web_builds/releases/latest/download/oidc_override_web_vault.tar.gz).
