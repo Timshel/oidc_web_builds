@@ -105,10 +105,10 @@ index 4853b26..512b3a4 100644
    locked: "/lock",
    notDecrypted: "/login-initiated",
  };
-diff --git a/libs/angular/src/components/set-password.component.ts b/libs/angular/src/components/set-password.component.ts
+diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
 index efd9f17..7f26d54 100644
---- a/libs/angular/src/components/set-password.component.ts
-+++ b/libs/angular/src/components/set-password.component.ts
+--- a/libs/angular/src/auth/components/set-password.component.ts
++++ b/libs/angular/src/auth/components/set-password.component.ts
 @@ -70,25 +70,8 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
      await this.syncService.fullSync(true);
      this.syncLoading = false;

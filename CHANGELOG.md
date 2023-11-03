@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.10.0
+
+ - Upgrade to `v2023.10.0`
+
 ## v2023.9.1
 
  - Upgrade to `v2023.9.1`

@@ -361,8 +361,8 @@ index 32bb069..3821bf0 100644
      "message": "Identifikator organizacije"
    },
    "ssoLogInWithOrgIdentifier": {
--    "message": "Prijavi se koristeći SSO portal tvoje tvrtke. Za nastavak unesi identifikator organizacije."
-+    "message": "Prijavi se koristeći SSO portal tvoje tvrtke."
+-    "message": "Prijavi se koristeći SSO portal tvoje organizacije. Za nastavak unesi identifikator organizacije."
++    "message": "Prijavi se koristeći SSO portal tvoje organizacije."
    },
    "enterpriseSingleSignOn": {
      "message": "Jedinstvena prijava na razini tvrtke (SSO)"
