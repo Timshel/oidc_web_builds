@@ -1,152 +1,19 @@
-Subject: [PATCH] Persist org invit and previousUrl across redirection
-
+Subject: [PATCH] Persist org invite across redirection
 ---
- apps/web/src/app/auth/lock.component.ts       |  2 +-
- .../web/src/app/auth/login/login.component.ts |  2 +-
- apps/web/src/app/auth/two-factor.component.ts |  2 +-
- apps/web/src/app/core/router.service.ts       | 14 +++++++----
- .../platform/abstractions/state.service.ts    |  2 ++
- .../platform/models/domain/global-state.ts    |  1 +
- .../src/platform/services/state.service.ts    | 25 +++++++++++++++----
- 7 files changed, 35 insertions(+), 13 deletions(-)
+ libs/common/src/platform/services/state.service.ts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/apps/web/src/app/auth/lock.component.ts b/apps/web/src/app/auth/lock.component.ts
-index 789ebc169..3cc3a2faa 100644
---- a/apps/web/src/app/auth/lock.component.ts
-+++ b/apps/web/src/app/auth/lock.component.ts
-@@ -69,7 +69,7 @@ export class LockComponent extends BaseLockComponent {
-   async ngOnInit() {
-     await super.ngOnInit();
-     this.onSuccessfulSubmit = async () => {
--      const previousUrl = this.routerService.getPreviousUrl();
-+      const previousUrl = await this.routerService.getPreviousUrl();
-       if (previousUrl && previousUrl !== "/" && previousUrl.indexOf("lock") === -1) {
-         this.successRoute = previousUrl;
-       }
-diff --git a/apps/web/src/app/auth/login/login.component.ts b/apps/web/src/app/auth/login/login.component.ts
-index 316b353c4..ffc2ca05e 100644
---- a/apps/web/src/app/auth/login/login.component.ts
-+++ b/apps/web/src/app/auth/login/login.component.ts
-@@ -177,7 +177,7 @@ export class LoginComponent extends BaseLoginComponent implements OnInit, OnDest
-       }
-     }
- 
--    const previousUrl = this.routerService.getPreviousUrl();
-+    const previousUrl = await this.routerService.getPreviousUrl();
-     if (previousUrl) {
-       this.router.navigateByUrl(previousUrl);
-     } else {
-diff --git a/apps/web/src/app/auth/two-factor.component.ts b/apps/web/src/app/auth/two-factor.component.ts
-index 57b384e97..8c3f6f764 100644
---- a/apps/web/src/app/auth/two-factor.component.ts
-+++ b/apps/web/src/app/auth/two-factor.component.ts
-@@ -83,7 +83,7 @@ export class TwoFactorComponent extends BaseTwoFactorComponent {
- 
-   goAfterLogIn = async () => {
-     this.loginService.clearValues();
--    const previousUrl = this.routerService.getPreviousUrl();
-+    const previousUrl = await this.routerService.getPreviousUrl();
-     if (previousUrl) {
-       this.router.navigateByUrl(previousUrl);
-     } else {
-diff --git a/apps/web/src/app/core/router.service.ts b/apps/web/src/app/core/router.service.ts
-index 6667b7b3b..dd392800e 100644
---- a/apps/web/src/app/core/router.service.ts
-+++ b/apps/web/src/app/core/router.service.ts
-@@ -4,9 +4,11 @@ import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
- import { filter } from "rxjs";
- 
- import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
-+import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
- 
- @Injectable()
- export class RouterService {
-+  private stateService: StateService = undefined;
-   private previousUrl: string = undefined;
-   private currentUrl: string = undefined;
- 
-@@ -14,9 +16,11 @@ export class RouterService {
-     private router: Router,
-     private activatedRoute: ActivatedRoute,
-     private titleService: Title,
--    i18nService: I18nService
-+    i18nService: I18nService,
-+    stateService: StateService
-   ) {
-     this.currentUrl = this.router.url;
-+    this.stateService = stateService;
- 
-     router.events
-       .pipe(filter((e) => e instanceof NavigationEnd))
-@@ -46,11 +50,11 @@ export class RouterService {
-       });
-   }
- 
--  getPreviousUrl() {
--    return this.previousUrl;
-+  async getPreviousUrl() {
-+    return await this.stateService.getPreviousUrl();
-   }
- 
--  setPreviousUrl(url: string) {
--    this.previousUrl = url;
-+  async setPreviousUrl(url: string) {
-+    await this.stateService.setPreviousUrl(url);
-   }
- }
-diff --git a/libs/common/src/platform/abstractions/state.service.ts b/libs/common/src/platform/abstractions/state.service.ts
-index e5b4e17fb..042674015 100644
---- a/libs/common/src/platform/abstractions/state.service.ts
-+++ b/libs/common/src/platform/abstractions/state.service.ts
-@@ -306,6 +306,8 @@ export abstract class StateService<T extends Account = Account> {
-   setNoAutoPromptBiometricsText: (value: string, options?: StorageOptions) => Promise<void>;
-   getOpenAtLogin: (options?: StorageOptions) => Promise<boolean>;
-   setOpenAtLogin: (value: boolean, options?: StorageOptions) => Promise<void>;
-+  getPreviousUrl: (options?: StorageOptions) => Promise<string>;
-+  setPreviousUrl: (value: string, options?: StorageOptions) => Promise<void>;
-   getOrganizationInvitation: (options?: StorageOptions) => Promise<any>;
-   setOrganizationInvitation: (value: any, options?: StorageOptions) => Promise<void>;
-   getEmergencyAccessInvitation: (options?: StorageOptions) => Promise<any>;
-diff --git a/libs/common/src/platform/models/domain/global-state.ts b/libs/common/src/platform/models/domain/global-state.ts
-index dfe3c6c41..a43bf246b 100644
---- a/libs/common/src/platform/models/domain/global-state.ts
-+++ b/libs/common/src/platform/models/domain/global-state.ts
-@@ -37,4 +37,5 @@ export class GlobalState {
-   enableBrowserIntegrationFingerprint?: boolean;
-   enableDuckDuckGoBrowserIntegration?: boolean;
-   region?: string;
-+  previousUrl?: string;
- }
 diff --git a/libs/common/src/platform/services/state.service.ts b/libs/common/src/platform/services/state.service.ts
-index dce5d7644..cf280841b 100644
+index fda79c552..d49bdddc5 100644
 --- a/libs/common/src/platform/services/state.service.ts
 +++ b/libs/common/src/platform/services/state.service.ts
-@@ -1948,20 +1948,35 @@ export class StateService<
-     );
-   }
+@@ -2389,18 +2389,18 @@ export class StateService<
  
-+  async getPreviousUrl(options?: StorageOptions): Promise<string> {
-+    const globals = await this.getGlobals(this.reconcileOptions(options, await this.defaultOnDiskOptions()))
-+    return (globals)?.previousUrl;
-+  }
-+
-+  async setPreviousUrl(value: string, options?: StorageOptions): Promise<void> {
-+    const globals = await this.getGlobals(
-+      this.reconcileOptions(options, await this.defaultOnDiskOptions())
-+    );
-+    globals.previousUrl = value;
-+    await this.saveGlobals(
-+      globals,
-+      this.reconcileOptions(options, await this.defaultOnDiskOptions())
-+    );
-+  }
-+
    async getOrganizationInvitation(options?: StorageOptions): Promise<any> {
--    return (
+     return (
 -      await this.getGlobals(this.reconcileOptions(options, await this.defaultInMemoryOptions()))
--    )?.organizationInvitation;
-+    const globals = await this.getGlobals(this.reconcileOptions(options, await this.defaultOnDiskOptions()))
-+    return (globals)?.organizationInvitation;
++      await this.getGlobals(this.reconcileOptions(options, await this.defaultOnDiskOptions()))
+     )?.organizationInvitation;
    }
  
    async setOrganizationInvitation(value: any, options?: StorageOptions): Promise<void> {
