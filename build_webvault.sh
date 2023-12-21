@@ -3,6 +3,11 @@
 set -x
 set -e
 
+NO_BUILD=false
+if [ "$1" = "--only-patch" ] ; then
+  NO_BUILD=true
+fi
+
 source build_versions.sh
 
 rm -rf vault vw oidc_button_web_vault.tar.gz oidc_override_web_vault.tar.gz
@@ -24,30 +29,36 @@ cd vault
 git apply "../vw/patches/${PATCH_NAME}.patch"
 
 # Prepare build
-npm ci
-npm audit fix || true
+if [ "$NO_BUILD" = false ] ; then
+	npm ci
+	npm audit fix || true
+fi
 
 # Apply sso login button and org invite patch
 git apply ../oidc_button.patch
 
-cd apps/web
-npm run dist:oss:selfhost
-printf '{"version": "oidc_button-%s"}' $SHORT_COMMIT_HASH \ > build/vw-version.json
-mv build web-vault
-tar -czvf ../../../"oidc_button_web_vault.tar.gz" web-vault --owner=0 --group=0
-rm -rf web-vault
-cd ../..
+if [ "$NO_BUILD" = false ] ; then
+	cd apps/web
+	npm run dist:oss:selfhost
+	printf '{"version": "oidc_button-%s"}' $SHORT_COMMIT_HASH \ > build/vw-version.json
+	mv build web-vault
+	tar -czvf ../../../"oidc_button_web_vault.tar.gz" web-vault --owner=0 --group=0
+	rm -rf web-vault
+	cd ../..
+fi
 
 # Apply the invite, override and messages patches
 git apply ../oidc_invite.patch
 git apply ../oidc_override.patch
 git apply ../oidc_messages.patch
 
-cd apps/web
-npm run dist:oss:selfhost
-printf '{"version": "oidc_override-%s"}' $SHORT_COMMIT_HASH \ > build/vw-version.json
-mv build web-vault
-tar -czvf ../../../"oidc_override_web_vault.tar.gz" web-vault --owner=0 --group=0
+if [ "$NO_BUILD" = false ] ; then
+	cd apps/web
+	npm run dist:oss:selfhost
+	printf '{"version": "oidc_override-%s"}' $SHORT_COMMIT_HASH \ > build/vw-version.json
+	mv build web-vault
+	tar -czvf ../../../"oidc_override_web_vault.tar.gz" web-vault --owner=0 --group=0
+	cd ../../../
+fi
 
-cd ../../../
 rm -rf vault vw
