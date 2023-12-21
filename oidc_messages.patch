@@ -88,7 +88,7 @@ index 1a3813e..c1c5ca8 100644
      "message": "Təşkilat identifikatoru"
    },
    "ssoLogInWithOrgIdentifier": {
--    "message": "Təşkilatınızın tək daxil olma portalını istifadə edərək giriş edin. Başlatmaq üçün zəhmət olmasa təşkilatınızın identifikatorunu daxil edin."
+-    "message": "Təşkilatınızın tək daxil olma portalını istifadə edərək giriş edin. Başlatmaq üçün lütfən təşkilatınızın identifikatorunu daxil edin."
 +    "message": "Təşkilatınızın tək daxil olma portalını istifadə edərək giriş edin."
    },
    "enterpriseSingleSignOn": {

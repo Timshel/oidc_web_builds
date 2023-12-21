@@ -1,27 +1,12 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- .../app/layout/account-switcher.component.ts  |  2 +-
  .../auth/accept-organization.component.html   | 10 +--------
  apps/web/src/app/auth/sso.component.html      | 12 -----------
  .../src/auth/components/sso.component.ts      | 11 +---------
  .../angular/src/auth/guards/redirect.guard.ts |  2 +-
- .../src/components/set-password.component.ts  | 21 ++-----------------
  6 files changed, 6 insertions(+), 52 deletions(-)
 
-diff --git a/apps/desktop/src/app/layout/account-switcher.component.ts b/apps/desktop/src/app/layout/account-switcher.component.ts
-index 76cff30..c85909d 100644
---- a/apps/desktop/src/app/layout/account-switcher.component.ts
-+++ b/apps/desktop/src/app/layout/account-switcher.component.ts
-@@ -149,7 +149,7 @@ export class AccountSwitcherComponent implements OnInit, OnDestroy {
-     this.close();
-     await this.stateService.setActiveUser(null);
-     await this.stateService.setRememberedEmail(null);
--    this.router.navigate(["/login"]);
-+    this.router.navigate(["/sso"]);
-   }
- 
-   private async createSwitcherAccounts(baseAccounts: {
 diff --git a/apps/web/src/app/auth/accept-organization.component.html b/apps/web/src/app/auth/accept-organization.component.html
 index 3aef47d..a72ee54 100644
 --- a/apps/web/src/app/auth/accept-organization.component.html
@@ -105,38 +90,6 @@ index 4853b26..512b3a4 100644
    locked: "/lock",
    notDecrypted: "/login-initiated",
  };
-diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
-index efd9f17..7f26d54 100644
---- a/libs/angular/src/auth/components/set-password.component.ts
-+++ b/libs/angular/src/auth/components/set-password.component.ts
-@@ -70,25 +70,8 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
-     await this.syncService.fullSync(true);
-     this.syncLoading = false;
- 
--    // eslint-disable-next-line rxjs/no-async-subscribe
--    this.route.queryParams.pipe(first()).subscribe(async (qParams) => {
--      if (qParams.identifier != null) {
--        this.identifier = qParams.identifier;
--      }
--    });
--
--    // Automatic Enrollment Detection
--    if (this.identifier != null) {
--      try {
--        const response = await this.organizationApiService.getAutoEnrollStatus(this.identifier);
--        this.orgId = response.id;
--        this.resetPasswordAutoEnroll = response.resetPasswordEnabled;
--        this.enforcedPolicyOptions =
--          await this.policyApiService.getMasterPasswordPoliciesForInvitedUsers(this.orgId);
--      } catch {
--        this.platformUtilsService.showToast("error", null, this.i18nService.t("errorOccurred"));
--      }
--    }
-+    // Just disable AutoEnroll there is no ORG
-+    this.resetPasswordAutoEnroll = false;
- 
-     super.ngOnInit();
-   }
 -- 
 2.39.2
 
