@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.10.0-2
+
+ - Fix `vw-version.json`
+
 ## v2023.10.0-1
 
  - Add a patch to display sso errors and redirect to the start of the flow.
