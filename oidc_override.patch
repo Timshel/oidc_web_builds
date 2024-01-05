@@ -1,14 +1,14 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- .../auth/accept-organization.component.html   | 10 +--------
- apps/web/src/app/auth/sso.component.html      | 12 -----------
- .../src/auth/components/sso.component.ts      | 11 +---------
- .../angular/src/auth/guards/redirect.guard.ts |  2 +-
- 6 files changed, 6 insertions(+), 52 deletions(-)
+ .../app/auth/accept-organization.component.html   | 10 +---------
+ apps/web/src/app/auth/sso.component.html          | 15 ---------------
+ libs/angular/src/auth/components/sso.component.ts | 11 +----------
+ libs/angular/src/auth/guards/redirect.guard.ts    |  2 +-
+ 4 files changed, 3 insertions(+), 35 deletions(-)
 
 diff --git a/apps/web/src/app/auth/accept-organization.component.html b/apps/web/src/app/auth/accept-organization.component.html
-index 3aef47d..a72ee54 100644
+index 3aef47df2..a72ee545c 100644
 --- a/apps/web/src/app/auth/accept-organization.component.html
 +++ b/apps/web/src/app/auth/accept-organization.component.html
 @@ -25,19 +25,11 @@
@@ -33,7 +33,7 @@ index 3aef47d..a72ee54 100644
          </div>
        </div>
 diff --git a/apps/web/src/app/auth/sso.component.html b/apps/web/src/app/auth/sso.component.html
-index fb56cea..2569148 100644
+index fb56cead2..38bba693c 100644
 --- a/apps/web/src/app/auth/sso.component.html
 +++ b/apps/web/src/app/auth/sso.component.html
 @@ -15,18 +15,6 @@
@@ -55,11 +55,21 @@ index fb56cea..2569148 100644
            <hr />
            <div class="d-flex">
              <button
+@@ -41,9 +29,6 @@
+                 aria-hidden="true"
+               ></i>
+             </button>
+-            <a routerLink="/login" class="btn btn-outline-secondary btn-block ml-2 mt-0">
+-              {{ "cancel" | i18n }}
+-            </a>
+           </div>
+         </div>
+       </div>
 diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
-index 8030e88..a844bbe 100644
+index fe02304a4..5fe65a065 100644
 --- a/libs/angular/src/auth/components/sso.component.ts
 +++ b/libs/angular/src/auth/components/sso.component.ts
-@@ -98,16 +98,7 @@ export class SsoComponent {
+@@ -94,16 +94,7 @@ export class SsoComponent {
    }
  
    async submit(returnUri?: string, includeUserIdentifier?: boolean) {
@@ -78,7 +88,7 @@ index 8030e88..a844bbe 100644
  
      const authorizeUrl = await this.buildAuthorizeUrl(
 diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
-index 4853b26..512b3a4 100644
+index 4853b26e7..512b3a455 100644
 --- a/libs/angular/src/auth/guards/redirect.guard.ts
 +++ b/libs/angular/src/auth/guards/redirect.guard.ts
 @@ -15,7 +15,7 @@ export interface RedirectRoutes {
