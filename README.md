@@ -15,6 +15,7 @@ This generate two different versions :
 	- set `#sso` as the default redirect url
 	- remove some unnecessary logic ([patch](oidc_override.patch))
 	- allow organization invitation to survive sso redirection ([patch](oidc_invite.patch))
+	- display SSO errors and redirect to start of the flow ([patch](oidc_sso_errors.patch))
 
 ## Building the web-vault
 To build the web-vault you need node and npm installed.
@@ -36,6 +37,7 @@ This will :
 - Package it as `oidc_button_web_vault.tar.gz`.
 - Apply the invite [patch](oidc_invite.patch)
 - Apply the override [patch](oidc_override.patch) to improve SSO flow
+- Apply the override [patch](oidc_sso_errors.patch) to improve SSO errors handling
 - Apply the messages [patch](oidc_messages.patch)
 - Build the web vault application
 - Package it as `oidc_override_web_vault.tar.gz`.

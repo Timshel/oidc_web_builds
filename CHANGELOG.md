@@ -1,5 +1,9 @@
 # Changelog
 
+## v2023.10.0-1
+
+ - Add a patch to display sso errors and redirect to the start of the flow.
+
 ## v2023.10.0
 
  - Upgrade to `v2023.10.0`

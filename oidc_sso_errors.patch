@@ -1,0 +1,24 @@
+Subject: [PATCH] Display all sso errors and reset flow
+
+---
+ libs/angular/src/auth/components/sso.component.ts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
+index 5fe65a065..526d973ca 100644
+--- a/libs/angular/src/auth/components/sso.component.ts
++++ b/libs/angular/src/auth/components/sso.component.ts
+@@ -333,7 +333,11 @@ export class SsoComponent {
+         null,
+         this.i18nService.t("ssoKeyConnectorError")
+       );
++    } else {
++      this.platformUtilsService.showToast("error", null, e.message);
+     }
++    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
++    this.router.navigate(["/sso"]);
+   }
+ 
+   private async navigateViaCallbackOrRoute(
+-- 
+2.39.2
