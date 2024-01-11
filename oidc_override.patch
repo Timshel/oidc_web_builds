@@ -77,13 +77,13 @@ index fe02304a4..5fe65a065 100644
 -      this.platformUtilsService.showToast(
 -        "error",
 -        this.i18nService.t("ssoValidationFailed"),
--        this.i18nService.t("ssoIdentifierRequired")
+-        this.i18nService.t("ssoIdentifierRequired"),
 -      );
 -      return;
 -    }
 -
 -    this.initiateSsoFormPromise = this.apiService.preValidateSso(this.identifier);
-+    this.initiateSsoFormPromise = this.apiService.preValidateSso("vaultwarden");
++    this.initiateSsoFormPromise = this.apiService.preValidateSso("VaultWarden");
      const response = await this.initiateSsoFormPromise;
  
      const authorizeUrl = await this.buildAuthorizeUrl(

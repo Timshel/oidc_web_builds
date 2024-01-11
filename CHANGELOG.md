@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.0-1
+
+ - Upgrade to `v2024.1.0`
+
 ## v2023.10.0-2
 
  - Fix `vw-version.json`
