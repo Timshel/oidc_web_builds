@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.1-1
+
+ - Upgrade to `v2024.1.1`
+
 ## v2024.1.0-1
 
  - Upgrade to `v2024.1.0`
