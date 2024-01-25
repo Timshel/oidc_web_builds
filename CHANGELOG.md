@@ -1,6 +1,10 @@
 # Changelog
 
-## v2024.1.2
+## v2024.1.2-2
+
+ - Add experimental feature to never send Master Password hash to server
+
+## v2024.1.2-1
 
  - Upgrade to `v2024.1.2`
 

@@ -8,7 +8,7 @@
 
 This is a repository to store custom builds of the [Bitwarden web vault](https://github.com/bitwarden/clients/tree/master/apps/web) patched to work with [vaultwarden](https://github.com/dani-garcia/vaultwarden) and patched again to obtain a cleaner flow when using an SSO.
 
-This generate two different versions :
+This generate three different versions :
 
 - One only restore the SSO login button ([patch](oidc_button.patch)) (this is closed to what is expected ot be merge into [bw_web_builds](https://github.com/dani-garcia/bw_web_builds))
 - Other one additionally :
@@ -16,6 +16,7 @@ This generate two different versions :
 	- remove some unnecessary logic ([patch](oidc_override.patch))
 	- allow organization invitation to survive sso redirection ([patch](oidc_invite.patch))
 	- display SSO errors and redirect to start of the flow ([patch](oidc_sso_errors.patch))
+- And an experimental one which stop sending the Master password hash to the server ([patch](oidc_experimental.patch))
 
 ## Building the web-vault
 To build the web-vault you need node and npm installed.
@@ -41,6 +42,9 @@ This will :
 - Apply the messages [patch](oidc_messages.patch)
 - Build the web vault application
 - Package it as `oidc_override_web_vault.tar.gz`.
+- Apply the experimental [patch](oidc_experimental.patch) to improve SSO errors handling
+- Build the web vault application
+- Package it as `oidc_experimental_web_vault.tar.gz`.
 
 ### More information
 For more information see: [Install the web-vault](https://github.com/dani-garcia/vaultwarden/wiki/Building-binary#install-the-web-vault)
