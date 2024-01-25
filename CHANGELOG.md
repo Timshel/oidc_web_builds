@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.2-3
+
+ - Fix oversized `experimental` release
+
 ## v2024.1.2-2
 
  - Add experimental feature to never send Master Password hash to server

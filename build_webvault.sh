@@ -59,6 +59,7 @@ if [ "$NO_BUILD" = false ] ; then
 	printf '{"version": "oidc_override-%s"}' $SHORT_COMMIT_HASH > build/vw-version.json
 	mv build web-vault
 	tar -czvf ../../../"oidc_override_web_vault.tar.gz" web-vault --owner=0 --group=0
+	rm -rf web-vault
 	cd ../..
 fi
 
@@ -71,6 +72,7 @@ if [ "$NO_BUILD" = false ] ; then
 	printf '{"version": "oidc_experimental-%s"}' $SHORT_COMMIT_HASH > build/vw-version.json
 	mv build web-vault
 	tar -czvf ../../../"oidc_experimental_web_vault.tar.gz" web-vault --owner=0 --group=0
+	rm -rf web-vault
 	cd ../..
 fi
 
