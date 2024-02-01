@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.2-4
+
+ - Apply the [oidc_invite.patch](oidc_invite.patch) to `button` since it's expected to be merged.
+
 ## v2024.1.2-3
 
  - Fix oversized `experimental` release

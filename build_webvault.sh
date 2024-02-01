@@ -36,6 +36,7 @@ fi
 
 # Apply sso login button and org invite patch
 git apply ../oidc_button.patch
+git apply ../oidc_invite.patch
 
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
@@ -47,8 +48,7 @@ if [ "$NO_BUILD" = false ] ; then
 	cd ../..
 fi
 
-# Apply the invite, override and messages patches
-git apply ../oidc_invite.patch
+# Apply the override and messages patches
 git apply ../oidc_override.patch
 git apply ../oidc_sso_errors.patch
 git apply ../oidc_messages.patch
