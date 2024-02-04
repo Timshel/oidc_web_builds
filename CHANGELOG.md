@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.2-5
+
+ - Set the tag as the version in `vw-version.json`
+
 ## v2024.1.2-4
 
  - Apply the [oidc_invite.patch](oidc_invite.patch) to `button` since it's expected to be merged.

@@ -41,7 +41,7 @@ git apply ../oidc_invite.patch
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
 	npm run dist:oss:selfhost
-	printf '{"version": "oidc_button-%s"}' $SHORT_COMMIT_HASH > build/vw-version.json
+	printf '{"version": "oidc_button-%s"}' $TAG_CURRENT > build/vw-version.json
 	mv build web-vault
 	tar -czvf ../../../"oidc_button_web_vault.tar.gz" web-vault --owner=0 --group=0
 	rm -rf web-vault
@@ -56,7 +56,7 @@ git apply ../oidc_messages.patch
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
 	npm run dist:oss:selfhost
-	printf '{"version": "oidc_override-%s"}' $SHORT_COMMIT_HASH > build/vw-version.json
+	printf '{"version": "oidc_override-%s"}' $TAG_CURRENT > build/vw-version.json
 	mv build web-vault
 	tar -czvf ../../../"oidc_override_web_vault.tar.gz" web-vault --owner=0 --group=0
 	rm -rf web-vault
@@ -69,7 +69,7 @@ git apply ../oidc_experimental.patch
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
 	npm run dist:oss:selfhost
-	printf '{"version": "oidc_experimental-%s"}' $SHORT_COMMIT_HASH > build/vw-version.json
+	printf '{"version": "oidc_experimental-%s"}' $TAG_CURRENT > build/vw-version.json
 	mv build web-vault
 	tar -czvf ../../../"oidc_experimental_web_vault.tar.gz" web-vault --owner=0 --group=0
 	rm -rf web-vault
