@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.1.2-6
+
+ - Update to VW `v2024.1.2b`
+
 ## v2024.1.2-5
 
  - Set the tag as the version in `vw-version.json`
