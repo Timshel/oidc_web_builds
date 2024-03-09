@@ -1,5 +1,10 @@
 # Changelog
 
+## v2024.2.5-rc
+
+ - Update to VW [pull/157/head](https://github.com/dani-garcia/bw_web_builds/pull/157)
+ - Experimental: fix current password check when changing password
+
 ## v2024.1.2-6
 
  - Update to VW `v2024.1.2b`

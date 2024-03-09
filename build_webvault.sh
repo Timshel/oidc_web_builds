@@ -18,7 +18,13 @@ rm -f
 git clone --depth 1  --branch "$VAULT_VERSION"  https://github.com/bitwarden/clients.git vault
 
 # Fetch vault warden
-git clone --depth 1  --branch "$VW_VERSION"  https://github.com/dani-garcia/bw_web_builds.git vw
+# Fetch vault warden
+cd vw
+git init
+git remote add origin https://github.com/dani-garcia/bw_web_builds.git
+git fetch --depth 1 origin "${VW_VERSION}"
+git -c advice.detachedHead=false checkout FETCH_HEAD
+cd -
 
 # Copy VW ressources
 cp -vf vw/resources/src/favicon.ico vault/apps/web/src/favicon.ico

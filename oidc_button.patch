@@ -1,13 +1,14 @@
 Subject: [PATCH] Make sso login button visible
+
 ---
  apps/web/src/scss/styles.scss | 5 -----
  1 file changed, 5 deletions(-)
 
 diff --git a/apps/web/src/scss/styles.scss b/apps/web/src/scss/styles.scss
-index 1df2acb..8b8d7d5 100644
+index 8691768352..75933d831e 100644
 --- a/apps/web/src/scss/styles.scss
 +++ b/apps/web/src/scss/styles.scss
-@@ -81,11 +81,6 @@ a[href$="/settings/sponsored-families"] {
+@@ -79,11 +79,6 @@ a[href$="/settings/sponsored-families"] {
    @extend %vw-hide;
  }
  
@@ -17,7 +18,7 @@ index 1df2acb..8b8d7d5 100644
 -}
 -
  /* Hide Two-Factor menu in Organization settings */
- app-org-settings a[href$="/settings/two-factor"] {
-   @extend %vw-hide;
+ bit-nav-item[route="settings/two-factor"],
+ a[href$="/settings/two-factor"] {
 -- 
 2.39.2

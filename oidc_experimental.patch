@@ -3,7 +3,7 @@ Subject: [PATCH] Experimental SSO don't send MasterPwd to server
 ---
  ...rganization-user-reset-password.service.ts |  1 -
  .../app/auth/recover-two-factor.component.ts  |  1 -
- .../settings/change-password.component.ts     |  6 ---
+ .../settings/change-password.component.ts     | 18 +++++---
  .../change-kdf-confirmation.component.ts      |  5 ---
  .../settings/two-factor-verify.component.ts   |  5 +--
  .../organization-options.component.ts         |  1 -
@@ -19,14 +19,13 @@ Subject: [PATCH] Experimental SSO don't send MasterPwd to server
  .../models/request/set-password.request.ts    |  2 -
  ...ice-trust-crypto.service.implementation.ts |  4 +-
  .../user-verification.service.ts              | 13 ------
- .../src/platform/services/crypto.service.ts   |  4 +-
- 19 files changed, 14 insertions(+), 110 deletions(-)
+ 18 files changed, 24 insertions(+), 108 deletions(-)
 
 diff --git a/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts b/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
-index 3c13d23f0a..df60bdc8fc 100644
+index cd94513f19..510713e03a 100644
 --- a/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
 +++ b/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
-@@ -151,7 +151,6 @@ export class OrganizationUserResetPasswordService {
+@@ -149,7 +149,6 @@ export class OrganizationUserResetPasswordService {
        const request = new OrganizationUserResetPasswordWithIdRequest();
        request.organizationId = org.id;
        request.resetPasswordKey = encryptedKey;
@@ -35,22 +34,22 @@ index 3c13d23f0a..df60bdc8fc 100644
        requests.push(request);
      }
 diff --git a/apps/web/src/app/auth/recover-two-factor.component.ts b/apps/web/src/app/auth/recover-two-factor.component.ts
-index 79abce9f5a..26cbc222fa 100644
+index 145c46c8df..e3d9b66454 100644
 --- a/apps/web/src/app/auth/recover-two-factor.component.ts
 +++ b/apps/web/src/app/auth/recover-two-factor.component.ts
-@@ -35,7 +35,6 @@ export class RecoverTwoFactorComponent {
-       request.recoveryCode = this.recoveryCode.replace(/\s/g, "").toLowerCase();
-       request.email = this.email.trim().toLowerCase();
-       const key = await this.authService.makePreloginKey(this.masterPassword, request.email);
+@@ -38,7 +38,6 @@ export class RecoverTwoFactorComponent {
+         this.masterPassword,
+         request.email,
+       );
 -      request.masterPasswordHash = await this.cryptoService.hashMasterKey(this.masterPassword, key);
        this.formPromise = this.apiService.postTwoFactorRecover(request);
        await this.formPromise;
        this.platformUtilsService.showToast(
 diff --git a/apps/web/src/app/auth/settings/change-password.component.ts b/apps/web/src/app/auth/settings/change-password.component.ts
-index 8ef5725007..e98c4a565b 100644
+index c747bbc4f7..3d86462444 100644
 --- a/apps/web/src/app/auth/settings/change-password.component.ts
 +++ b/apps/web/src/app/auth/settings/change-password.component.ts
-@@ -166,18 +166,12 @@ export class ChangePasswordComponent extends BaseChangePasswordComponent {
+@@ -160,18 +160,24 @@ export class ChangePasswordComponent extends BaseChangePasswordComponent {
    }
  
    async performSubmitActions(
@@ -58,12 +57,24 @@ index 8ef5725007..e98c4a565b 100644
      newMasterKey: MasterKey,
      newUserKey: [UserKey, EncString],
    ) {
-     const masterKey = await this.cryptoService.getOrDeriveMasterKey(this.currentMasterPassword);
-     const request = new PasswordRequest();
+-    const masterKey = await this.cryptoService.getOrDeriveMasterKey(this.currentMasterPassword);
+-    const request = new PasswordRequest();
 -    request.masterPasswordHash = await this.cryptoService.hashMasterKey(
--      this.currentMasterPassword,
++    const masterKey = await this.cryptoService.makeMasterKey(
+       this.currentMasterPassword,
 -      masterKey,
--    );
++      await this.stateService.getEmail(),
++      await this.stateService.getKdfType(),
++      await this.stateService.getKdfConfig(),
+     );
++
++    const userKey = await this.cryptoService.decryptUserKeyWithMasterKey(masterKey);
++    if( userKey == null ) {
++      this.platformUtilsService.showToast("error", null, this.i18nService.t("invalidMasterPassword"));
++      return;
++    }
++
++    const request = new PasswordRequest();
      request.masterPasswordHint = this.masterPasswordHint;
 -    request.newMasterPasswordHash = newMasterPasswordHash;
      request.key = newUserKey[1].encryptedString;
@@ -141,7 +152,7 @@ index ef8ba2838a..b201d8a7b9 100644
      this.rotatePromise = this.organizationApiService.rotateApiKey(this.organizationId, request);
  
 diff --git a/libs/angular/src/auth/components/change-password.component.ts b/libs/angular/src/auth/components/change-password.component.ts
-index 71360537bc..096d35d2bb 100644
+index 1086428f4c..8057dc57b6 100644
 --- a/libs/angular/src/auth/components/change-password.component.ts
 +++ b/libs/angular/src/auth/components/change-password.component.ts
 @@ -87,10 +87,6 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
@@ -173,10 +184,10 @@ index 71360537bc..096d35d2bb 100644
      newUserKey: [UserKey, EncString],
    ) {
 diff --git a/libs/angular/src/auth/components/lock.component.ts b/libs/angular/src/auth/components/lock.component.ts
-index f3398470cd..e3139d9d53 100644
+index d5da3e826e..7bca38e076 100644
 --- a/libs/angular/src/auth/components/lock.component.ts
 +++ b/libs/angular/src/auth/components/lock.component.ts
-@@ -247,55 +247,19 @@ export class LockComponent implements OnInit, OnDestroy {
+@@ -213,55 +213,19 @@ export class LockComponent implements OnInit, OnDestroy {
        kdf,
        kdfConfig,
      );
@@ -237,10 +248,10 @@ index f3398470cd..e3139d9d53 100644
  
    private async setUserKeyAndContinue(key: UserKey, evaluatePasswordAfterUnlock = false) {
 diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
-index 2956b8555a..cbec6a4df7 100644
+index 573c8ad3dd..ca1627ec15 100644
 --- a/libs/angular/src/auth/components/set-password.component.ts
 +++ b/libs/angular/src/auth/components/set-password.component.ts
-@@ -130,7 +130,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+@@ -134,7 +134,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
    }
  
    async performSubmitActions(
@@ -248,7 +259,7 @@ index 2956b8555a..cbec6a4df7 100644
      masterKey: MasterKey,
      userKey: [UserKey, EncString],
    ) {
-@@ -149,7 +148,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+@@ -153,7 +152,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
      }
  
      const request = new SetPasswordRequest(
@@ -256,7 +267,7 @@ index 2956b8555a..cbec6a4df7 100644
        userKey[1].encryptedString,
        this.hint,
        this.orgSsoIdentifier,
-@@ -179,7 +177,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+@@ -183,7 +181,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
              const encryptedUserKey = await this.cryptoService.rsaEncrypt(userKey.key, publicKey);
  
              const resetRequest = new OrganizationUserResetPasswordEnrollmentRequest();
@@ -265,22 +276,22 @@ index 2956b8555a..cbec6a4df7 100644
  
              return this.organizationUserService.putOrganizationUserResetPasswordEnrollment(
 diff --git a/libs/angular/src/auth/components/two-factor.component.ts b/libs/angular/src/auth/components/two-factor.component.ts
-index 38c1618fc8..cc4e2973a3 100644
+index e5f3230689..360753a332 100644
 --- a/libs/angular/src/auth/components/two-factor.component.ts
 +++ b/libs/angular/src/auth/components/two-factor.component.ts
-@@ -387,7 +387,6 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
+@@ -438,7 +438,6 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
      try {
        const request = new TwoFactorEmailRequest();
-       request.email = this.authService.email;
--      request.masterPasswordHash = this.authService.masterPasswordHash;
-       request.ssoEmail2FaSessionToken = this.authService.ssoEmail2FaSessionToken;
+       request.email = this.loginStrategyService.email;
+-      request.masterPasswordHash = this.loginStrategyService.masterPasswordHash;
+       request.ssoEmail2FaSessionToken = this.loginStrategyService.ssoEmail2FaSessionToken;
        request.deviceIdentifier = await this.appIdService.getAppId();
-       request.authRequestAccessCode = this.authService.accessCode;
+       request.authRequestAccessCode = this.loginStrategyService.accessCode;
 diff --git a/libs/angular/src/auth/components/update-password.component.ts b/libs/angular/src/auth/components/update-password.component.ts
-index 141c59f178..c2a943cae1 100644
+index 2ffffb6c5d..f477e825b0 100644
 --- a/libs/angular/src/auth/components/update-password.component.ts
 +++ b/libs/angular/src/auth/components/update-password.component.ts
-@@ -94,18 +94,12 @@ export class UpdatePasswordComponent extends BaseChangePasswordComponent {
+@@ -96,18 +96,12 @@ export class UpdatePasswordComponent extends BaseChangePasswordComponent {
    }
  
    async performSubmitActions(
@@ -300,10 +311,10 @@ index 141c59f178..c2a943cae1 100644
  
        // Update user's password
 diff --git a/libs/angular/src/auth/components/update-temp-password.component.ts b/libs/angular/src/auth/components/update-temp-password.component.ts
-index b8ebcdd1c2..da823c681a 100644
+index 0b4541fe52..bb861cf393 100644
 --- a/libs/angular/src/auth/components/update-temp-password.component.ts
 +++ b/libs/angular/src/auth/components/update-temp-password.component.ts
-@@ -119,10 +119,6 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+@@ -121,10 +121,6 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
          this.kdf,
          this.kdfConfig,
        );
@@ -314,7 +325,7 @@ index b8ebcdd1c2..da823c681a 100644
  
        // Grab user key
        const userKey = await this.cryptoService.getUserKey();
-@@ -133,24 +129,23 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+@@ -135,24 +131,23 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
          userKey,
        );
  
@@ -342,7 +353,7 @@ index b8ebcdd1c2..da823c681a 100644
            break;
        }
  
-@@ -172,22 +167,20 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+@@ -176,22 +171,20 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
        this.logService.error(e);
      }
    }
@@ -410,7 +421,7 @@ index 0fc5d84c09..d1f5145237 100644
      this.masterPasswordHint = masterPasswordHint;
      this.kdf = kdf;
 diff --git a/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts b/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
-index 52c6c0ff9c..a519a97314 100644
+index 9aa558ba53..ff12d13c29 100644
 --- a/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
 +++ b/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
 @@ -102,7 +102,7 @@ export class DeviceTrustCryptoService implements DeviceTrustCryptoServiceAbstrac
@@ -439,10 +450,10 @@ index 52c6c0ff9c..a519a97314 100644
      trustRequest.otherDevices = [];
  
 diff --git a/libs/common/src/auth/services/user-verification/user-verification.service.ts b/libs/common/src/auth/services/user-verification/user-verification.service.ts
-index 2d55a8402d..ee694a9602 100644
+index 431348c7fc..16fb79940d 100644
 --- a/libs/common/src/auth/services/user-verification/user-verification.service.ts
 +++ b/libs/common/src/auth/services/user-verification/user-verification.service.ts
-@@ -38,19 +38,6 @@ export class UserVerificationService implements UserVerificationServiceAbstracti
+@@ -101,19 +101,6 @@ export class UserVerificationService implements UserVerificationServiceAbstracti
  
      if (verification.type === VerificationType.OTP) {
        request.otp = verification.secret;
@@ -462,22 +473,6 @@ index 2d55a8402d..ee694a9602 100644
      }
  
      return request;
-diff --git a/libs/common/src/platform/services/crypto.service.ts b/libs/common/src/platform/services/crypto.service.ts
-index cada23f817..5dcacbad32 100644
---- a/libs/common/src/platform/services/crypto.service.ts
-+++ b/libs/common/src/platform/services/crypto.service.ts
-@@ -70,9 +70,9 @@ export class CryptoService implements CryptoServiceAbstraction {
-     if (key != null) {
-       // Key should never be null anyway
-       await this.stateProvider.getUser(userId, USER_EVER_HAD_USER_KEY).update(() => true);
-+      await this.stateService.setUserKey(key, { userId: userId });
-+      await this.storeAdditionalKeys(key, userId);
-     }
--    await this.stateService.setUserKey(key, { userId: userId });
--    await this.storeAdditionalKeys(key, userId);
-   }
- 
-   async refreshAdditionalKeys(): Promise<void> {
 -- 
 2.39.2
 
