@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.3.0-1
+
+ - Upgrade to `v2024.3.0`
+
 ## v2024.2.5-rc
 
  - Update to VW [pull/157/head](https://github.com/dani-garcia/bw_web_builds/pull/157)
