@@ -282,11 +282,11 @@ index e5f3230689..360753a332 100644
 @@ -438,7 +438,6 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
      try {
        const request = new TwoFactorEmailRequest();
-       request.email = this.loginStrategyService.email;
--      request.masterPasswordHash = this.loginStrategyService.masterPasswordHash;
-       request.ssoEmail2FaSessionToken = this.loginStrategyService.ssoEmail2FaSessionToken;
+       request.email = await this.loginStrategyService.getEmail();
+-      request.masterPasswordHash = await this.loginStrategyService.getMasterPasswordHash();
+       request.ssoEmail2FaSessionToken =
+         await this.loginStrategyService.getSsoEmail2FaSessionToken();
        request.deviceIdentifier = await this.appIdService.getAppId();
-       request.authRequestAccessCode = this.loginStrategyService.accessCode;
 diff --git a/libs/angular/src/auth/components/update-password.component.ts b/libs/angular/src/auth/components/update-password.component.ts
 index 2ffffb6c5d..f477e825b0 100644
 --- a/libs/angular/src/auth/components/update-password.component.ts
