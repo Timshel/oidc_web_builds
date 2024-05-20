@@ -1,5 +1,13 @@
 # Changelog
 
+## v2024.5.0-1
+
+ - Upgrade to `v2024.5.0`
+
+## v2024.3.1-1
+
+ - Upgrade to `v2024.3.1`
+
 ## v2024.3.1-1
 
  - Upgrade to `v2024.3.1`

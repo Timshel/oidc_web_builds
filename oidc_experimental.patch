@@ -2,30 +2,30 @@ Subject: [PATCH] Experimental SSO don't send MasterPwd to server
 
 ---
  ...rganization-user-reset-password.service.ts |  1 -
- .../app/auth/recover-two-factor.component.ts  |  1 -
- .../settings/change-password.component.ts     | 18 +++++---
- .../change-kdf-confirmation.component.ts      |  5 ---
- .../settings/two-factor-verify.component.ts   |  5 +--
+ .../app/auth/recover-two-factor.component.ts  |  5 --
+ .../settings/change-password.component.ts     | 26 ++++++----
+ .../change-kdf-confirmation.component.ts      |  6 ---
+ .../settings/two-factor-verify.component.ts   |  6 +--
  .../organization-options.component.ts         |  1 -
  .../organizations/manage/scim.component.ts    |  2 -
- .../components/change-password.component.ts   |  7 +--
- .../src/auth/components/lock.component.ts     | 44 ++-----------------
- .../auth/components/set-password.component.ts |  3 --
+ .../components/change-password.component.ts   | 12 +----
+ .../src/auth/components/lock.component.ts     | 49 ++-----------------
+ .../auth/components/set-password.component.ts |  8 +--
  .../auth/components/two-factor.component.ts   |  1 -
- .../components/update-password.component.ts   |  6 ---
- .../update-temp-password.component.ts         | 17 +++----
+ .../components/update-password.component.ts   | 11 +----
+ .../update-temp-password.component.ts         | 22 +++------
  .../auth/models/request/password.request.ts   |  1 -
  .../request/secret-verification.request.ts    |  1 -
  .../models/request/set-password.request.ts    |  2 -
- ...ice-trust-crypto.service.implementation.ts |  4 +-
- .../user-verification.service.ts              | 13 ------
- 18 files changed, 24 insertions(+), 108 deletions(-)
+ .../device-trust.service.implementation.ts    |  8 +--
+ .../user-verification.service.ts              | 13 -----
+ 18 files changed, 33 insertions(+), 142 deletions(-)
 
 diff --git a/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts b/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
-index cd94513f19..510713e03a 100644
+index fcdbe1e496..0274523ef2 100644
 --- a/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
 +++ b/apps/web/src/app/admin-console/organizations/members/services/organization-user-reset-password/organization-user-reset-password.service.ts
-@@ -149,7 +149,6 @@ export class OrganizationUserResetPasswordService {
+@@ -159,7 +159,6 @@ export class OrganizationUserResetPasswordService {
        const request = new OrganizationUserResetPasswordWithIdRequest();
        request.organizationId = org.id;
        request.resetPasswordKey = encryptedKey;
@@ -34,43 +34,52 @@ index cd94513f19..510713e03a 100644
        requests.push(request);
      }
 diff --git a/apps/web/src/app/auth/recover-two-factor.component.ts b/apps/web/src/app/auth/recover-two-factor.component.ts
-index 145c46c8df..e3d9b66454 100644
+index 145c46c8df..1dd589e0c9 100644
 --- a/apps/web/src/app/auth/recover-two-factor.component.ts
 +++ b/apps/web/src/app/auth/recover-two-factor.component.ts
-@@ -38,7 +38,6 @@ export class RecoverTwoFactorComponent {
-         this.masterPassword,
-         request.email,
-       );
+@@ -34,11 +34,6 @@ export class RecoverTwoFactorComponent {
+       const request = new TwoFactorRecoveryRequest();
+       request.recoveryCode = this.recoveryCode.replace(/\s/g, "").toLowerCase();
+       request.email = this.email.trim().toLowerCase();
+-      const key = await this.loginStrategyService.makePreloginKey(
+-        this.masterPassword,
+-        request.email,
+-      );
 -      request.masterPasswordHash = await this.cryptoService.hashMasterKey(this.masterPassword, key);
        this.formPromise = this.apiService.postTwoFactorRecover(request);
        await this.formPromise;
        this.platformUtilsService.showToast(
 diff --git a/apps/web/src/app/auth/settings/change-password.component.ts b/apps/web/src/app/auth/settings/change-password.component.ts
-index c747bbc4f7..3d86462444 100644
+index 454d96f2bd..4fb49d446e 100644
 --- a/apps/web/src/app/auth/settings/change-password.component.ts
 +++ b/apps/web/src/app/auth/settings/change-password.component.ts
-@@ -160,18 +160,24 @@ export class ChangePasswordComponent extends BaseChangePasswordComponent {
+@@ -160,19 +160,25 @@ export class ChangePasswordComponent extends BaseChangePasswordComponent {
+     return super.setupSubmitActions();
    }
  
-   async performSubmitActions(
+-  async performSubmitActions(
 -    newMasterPasswordHash: string,
-     newMasterKey: MasterKey,
-     newUserKey: [UserKey, EncString],
-   ) {
+-    newMasterKey: MasterKey,
+-    newUserKey: [UserKey, EncString],
+-  ) {
 -    const masterKey = await this.cryptoService.getOrDeriveMasterKey(this.currentMasterPassword);
 -    const request = new PasswordRequest();
 -    request.masterPasswordHash = await this.cryptoService.hashMasterKey(
++  async performSubmitActions(newMasterKey: MasterKey, newUserKey: [UserKey, EncString]) {
 +    const masterKey = await this.cryptoService.makeMasterKey(
        this.currentMasterPassword,
 -      masterKey,
 +      await this.stateService.getEmail(),
-+      await this.stateService.getKdfType(),
-+      await this.stateService.getKdfConfig(),
++      await this.kdfConfigService.getKdfConfig(),
      );
 +
 +    const userKey = await this.cryptoService.decryptUserKeyWithMasterKey(masterKey);
-+    if( userKey == null ) {
-+      this.platformUtilsService.showToast("error", null, this.i18nService.t("invalidMasterPassword"));
++    if (userKey == null) {
++      this.platformUtilsService.showToast(
++        "error",
++        null,
++        this.i18nService.t("invalidMasterPassword"),
++      );
 +      return;
 +    }
 +
@@ -81,19 +90,20 @@ index c747bbc4f7..3d86462444 100644
  
      try {
 diff --git a/apps/web/src/app/auth/settings/security/change-kdf/change-kdf-confirmation.component.ts b/apps/web/src/app/auth/settings/security/change-kdf/change-kdf-confirmation.component.ts
-index 0284c665d8..0ce26521df 100644
+index 985fb3e038..d8fc44a07f 100644
 --- a/apps/web/src/app/auth/settings/security/change-kdf/change-kdf-confirmation.component.ts
 +++ b/apps/web/src/app/auth/settings/security/change-kdf/change-kdf-confirmation.component.ts
-@@ -71,7 +71,6 @@ export class ChangeKdfConfirmationComponent {
-     request.kdfMemory = this.kdfConfig.memory;
-     request.kdfParallelism = this.kdfConfig.parallelism;
-     const masterKey = await this.cryptoService.getOrDeriveMasterKey(masterPassword);
+@@ -76,8 +76,6 @@ export class ChangeKdfConfirmationComponent {
+       request.kdfMemory = this.kdfConfig.memory;
+       request.kdfParallelism = this.kdfConfig.parallelism;
+     }
+-    const masterKey = await this.cryptoService.getOrDeriveMasterKey(masterPassword);
 -    request.masterPasswordHash = await this.cryptoService.hashMasterKey(masterPassword, masterKey);
      const email = await this.stateService.getEmail();
  
-     // Ensure the KDF config is valid.
-@@ -83,10 +82,6 @@ export class ChangeKdfConfirmationComponent {
-       this.kdf,
+     const newMasterKey = await this.cryptoService.makeMasterKey(
+@@ -85,10 +83,6 @@ export class ChangeKdfConfirmationComponent {
+       email,
        this.kdfConfig,
      );
 -    request.newMasterPasswordHash = await this.cryptoService.hashMasterKey(
@@ -104,15 +114,23 @@ index 0284c665d8..0ce26521df 100644
      request.key = newUserKey[1].encryptedString;
  
 diff --git a/apps/web/src/app/auth/settings/two-factor-verify.component.ts b/apps/web/src/app/auth/settings/two-factor-verify.component.ts
-index 145573f668..d745dc8ca3 100644
+index 7dc2847b82..bea395048c 100644
 --- a/apps/web/src/app/auth/settings/two-factor-verify.component.ts
 +++ b/apps/web/src/app/auth/settings/two-factor-verify.component.ts
-@@ -33,10 +33,7 @@ export class TwoFactorVerifyComponent {
- 
-     try {
-       this.formPromise = this.userVerificationService.buildRequest(this.secret).then((request) => {
+@@ -5,7 +5,6 @@ import { FormControl, FormGroup } from "@angular/forms";
+ import { ApiService } from "@bitwarden/common/abstractions/api.service";
+ import { UserVerificationService } from "@bitwarden/common/auth/abstractions/user-verification/user-verification.service.abstraction";
+ import { TwoFactorProviderType } from "@bitwarden/common/auth/enums/two-factor-provider-type";
+-import { VerificationType } from "@bitwarden/common/auth/enums/verification-type";
+ import { SecretVerificationRequest } from "@bitwarden/common/auth/models/request/secret-verification.request";
+ import { AuthResponse } from "@bitwarden/common/auth/types/auth-response";
+ import { TwoFactorResponse } from "@bitwarden/common/auth/types/two-factor-response";
+@@ -49,10 +48,7 @@ export class TwoFactorVerifyComponent {
+     this.formPromise = this.userVerificationService
+       .buildRequest(this.formGroup.value.secret)
+       .then((request) => {
 -        hashedSecret =
--          this.secret.type === VerificationType.MasterPassword
+-          this.formGroup.value.secret.type === VerificationType.MasterPassword
 -            ? request.masterPasswordHash
 -            : request.otp;
 +        hashedSecret = request.otp;
@@ -120,10 +138,10 @@ index 145573f668..d745dc8ca3 100644
        });
  
 diff --git a/apps/web/src/app/vault/individual-vault/vault-filter/components/organization-options.component.ts b/apps/web/src/app/vault/individual-vault/vault-filter/components/organization-options.component.ts
-index b7cb33d97e..5f4a88d059 100644
+index 8dd63e62dd..3268bd05f3 100644
 --- a/apps/web/src/app/vault/individual-vault/vault-filter/components/organization-options.component.ts
 +++ b/apps/web/src/app/vault/individual-vault/vault-filter/components/organization-options.component.ts
-@@ -148,7 +148,6 @@ export class OrganizationOptionsComponent implements OnInit, OnDestroy {
+@@ -159,7 +159,6 @@ export class OrganizationOptionsComponent implements OnInit, OnDestroy {
      } else {
        // Remove reset password
        const request = new OrganizationUserResetPasswordEnrollmentRequest();
@@ -132,10 +150,10 @@ index b7cb33d97e..5f4a88d059 100644
        this.actionPromise = this.organizationUserService.putOrganizationUserResetPasswordEnrollment(
          this.organization.id,
 diff --git a/bitwarden_license/bit-web/src/app/admin-console/organizations/manage/scim.component.ts b/bitwarden_license/bit-web/src/app/admin-console/organizations/manage/scim.component.ts
-index ef8ba2838a..b201d8a7b9 100644
+index 8e8db457e5..dbb3d7e767 100644
 --- a/bitwarden_license/bit-web/src/app/admin-console/organizations/manage/scim.component.ts
 +++ b/bitwarden_license/bit-web/src/app/admin-console/organizations/manage/scim.component.ts
-@@ -70,7 +70,6 @@ export class ScimComponent implements OnInit {
+@@ -71,7 +71,6 @@ export class ScimComponent implements OnInit {
    async loadApiKey() {
      const apiKeyRequest = new OrganizationApiKeyRequest();
      apiKeyRequest.type = OrganizationApiKeyType.Scim;
@@ -143,7 +161,7 @@ index ef8ba2838a..b201d8a7b9 100644
      const apiKeyResponse = await this.organizationApiService.getOrCreateApiKey(
        this.organizationId,
        apiKeyRequest,
-@@ -99,7 +98,6 @@ export class ScimComponent implements OnInit {
+@@ -100,7 +99,6 @@ export class ScimComponent implements OnInit {
  
      const request = new OrganizationApiKeyRequest();
      request.type = OrganizationApiKeyType.Scim;
@@ -152,11 +170,11 @@ index ef8ba2838a..b201d8a7b9 100644
      this.rotatePromise = this.organizationApiService.rotateApiKey(this.organizationId, request);
  
 diff --git a/libs/angular/src/auth/components/change-password.component.ts b/libs/angular/src/auth/components/change-password.component.ts
-index 1086428f4c..8057dc57b6 100644
+index b1f75de58c..79ee3cdf69 100644
 --- a/libs/angular/src/auth/components/change-password.component.ts
 +++ b/libs/angular/src/auth/components/change-password.component.ts
-@@ -87,10 +87,6 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
-       this.kdf,
+@@ -83,10 +83,6 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
+       email.trim().toLowerCase(),
        this.kdfConfig,
      );
 -    const newMasterKeyHash = await this.cryptoService.hashMasterKey(
@@ -166,7 +184,7 @@ index 1086428f4c..8057dc57b6 100644
  
      let newProtectedUserKey: [UserKey, EncString] = null;
      const userKey = await this.cryptoService.getUserKey();
-@@ -100,7 +96,7 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
+@@ -96,7 +92,7 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
        newProtectedUserKey = await this.cryptoService.encryptUserKeyWithMasterKey(newMasterKey);
      }
  
@@ -175,35 +193,59 @@ index 1086428f4c..8057dc57b6 100644
    }
  
    async setupSubmitActions(): Promise<boolean> {
-@@ -110,7 +106,6 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
+@@ -105,11 +101,7 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
+     return true;
    }
  
-   async performSubmitActions(
+-  async performSubmitActions(
 -    newMasterKeyHash: string,
-     newMasterKey: MasterKey,
-     newUserKey: [UserKey, EncString],
-   ) {
+-    newMasterKey: MasterKey,
+-    newUserKey: [UserKey, EncString],
+-  ) {
++  async performSubmitActions(newMasterKey: MasterKey, newUserKey: [UserKey, EncString]) {
+     // Override in sub-class
+   }
+ 
 diff --git a/libs/angular/src/auth/components/lock.component.ts b/libs/angular/src/auth/components/lock.component.ts
-index d5da3e826e..7bca38e076 100644
+index 7eb30d759a..33fbddd963 100644
 --- a/libs/angular/src/auth/components/lock.component.ts
 +++ b/libs/angular/src/auth/components/lock.component.ts
-@@ -213,55 +213,19 @@ export class LockComponent implements OnInit, OnDestroy {
-       kdf,
+@@ -18,7 +18,6 @@ import { InternalMasterPasswordServiceAbstraction } from "@bitwarden/common/auth
+ import { UserVerificationService } from "@bitwarden/common/auth/abstractions/user-verification/user-verification.service.abstraction";
+ import { AuthenticationStatus } from "@bitwarden/common/auth/enums/authentication-status";
+ import { ForceSetPasswordReason } from "@bitwarden/common/auth/models/domain/force-set-password-reason";
+-import { SecretVerificationRequest } from "@bitwarden/common/auth/models/request/secret-verification.request";
+ import { MasterPasswordPolicyResponse } from "@bitwarden/common/auth/models/response/master-password-policy.response";
+ import { VaultTimeoutAction } from "@bitwarden/common/enums/vault-timeout-action.enum";
+ import { CryptoService } from "@bitwarden/common/platform/abstractions/crypto.service";
+@@ -29,7 +28,7 @@ import { MessagingService } from "@bitwarden/common/platform/abstractions/messag
+ import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
+ import { StateService } from "@bitwarden/common/platform/abstractions/state.service";
+ import { BiometricStateService } from "@bitwarden/common/platform/biometrics/biometric-state.service";
+-import { HashPurpose, KeySuffixOptions } from "@bitwarden/common/platform/enums";
++import { KeySuffixOptions } from "@bitwarden/common/platform/enums";
+ import { PinLockType } from "@bitwarden/common/services/vault-timeout/vault-timeout-settings.service";
+ import { PasswordStrengthServiceAbstraction } from "@bitwarden/common/tools/password-strength";
+ import { UserId } from "@bitwarden/common/types/guid";
+@@ -224,46 +223,12 @@ export class LockComponent implements OnInit, OnDestroy {
+       this.email,
        kdfConfig,
      );
--    const storedPasswordHash = await this.cryptoService.getMasterKeyHash();
- 
+-    const storedMasterKeyHash = await firstValueFrom(
+-      this.masterPasswordService.masterKeyHash$(userId),
+-    );
+-
 -    let passwordValid = false;
 +    const userKey = await this.cryptoService.decryptUserKeyWithMasterKey(masterKey);
  
--    if (storedPasswordHash != null) {
+-    if (storedMasterKeyHash != null) {
 -      // Offline unlock possible
 -      passwordValid = await this.cryptoService.compareAndUpdateKeyHash(
 -        this.masterPassword,
 -        masterKey,
 -      );
 +    if (userKey != null) {
-+      await this.cryptoService.setMasterKey(masterKey);
++      await this.masterPasswordService.setMasterKey(masterKey, userId);
 +      await this.setUserKeyAndContinue(userKey, true);
      } else {
 -      // Online only
@@ -224,7 +266,7 @@ index d5da3e826e..7bca38e076 100644
 -          masterKey,
 -          HashPurpose.LocalAuthorization,
 -        );
--        await this.cryptoService.setMasterKeyHash(localKeyHash);
+-        await this.masterPasswordService.setMasterKeyHash(localKeyHash, userId);
 -      } catch (e) {
 -        this.logService.error(e);
 -      } finally {
@@ -236,30 +278,35 @@ index d5da3e826e..7bca38e076 100644
        this.platformUtilsService.showToast(
          "error",
          this.i18nService.t("errorOccurred"),
-         this.i18nService.t("invalidMasterPassword"),
+@@ -271,10 +236,6 @@ export class LockComponent implements OnInit, OnDestroy {
        );
--      return;
+       return;
      }
 -
 -    const userKey = await this.cryptoService.decryptUserKeyWithMasterKey(masterKey);
--    await this.cryptoService.setMasterKey(masterKey);
+-    await this.masterPasswordService.setMasterKey(masterKey, userId);
 -    await this.setUserKeyAndContinue(userKey, true);
    }
  
    private async setUserKeyAndContinue(key: UserKey, evaluatePasswordAfterUnlock = false) {
 diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
-index 573c8ad3dd..ca1627ec15 100644
+index 7ddc76d6c1..4553d0c214 100644
 --- a/libs/angular/src/auth/components/set-password.component.ts
 +++ b/libs/angular/src/auth/components/set-password.component.ts
-@@ -134,7 +134,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+@@ -142,11 +142,7 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+     return true;
    }
  
-   async performSubmitActions(
+-  async performSubmitActions(
 -    masterPasswordHash: string,
-     masterKey: MasterKey,
-     userKey: [UserKey, EncString],
-   ) {
-@@ -153,7 +152,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+-    masterKey: MasterKey,
+-    userKey: [UserKey, EncString],
+-  ) {
++  async performSubmitActions(masterKey: MasterKey, userKey: [UserKey, EncString]) {
+     let keysRequest: KeysRequest | null = null;
+     let newKeyPair: [string, EncString] | null = null;
+ 
+@@ -162,7 +158,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
      }
  
      const request = new SetPasswordRequest(
@@ -267,7 +314,7 @@ index 573c8ad3dd..ca1627ec15 100644
        userKey[1].encryptedString,
        this.hint,
        this.orgSsoIdentifier,
-@@ -183,7 +181,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
+@@ -189,7 +184,6 @@ export class SetPasswordComponent extends BaseChangePasswordComponent {
              const encryptedUserKey = await this.cryptoService.rsaEncrypt(userKey.key, publicKey);
  
              const resetRequest = new OrganizationUserResetPasswordEnrollmentRequest();
@@ -276,10 +323,10 @@ index 573c8ad3dd..ca1627ec15 100644
  
              return this.organizationUserService.putOrganizationUserResetPasswordEnrollment(
 diff --git a/libs/angular/src/auth/components/two-factor.component.ts b/libs/angular/src/auth/components/two-factor.component.ts
-index e5f3230689..360753a332 100644
+index 8e96c48ba0..836d4bac0c 100644
 --- a/libs/angular/src/auth/components/two-factor.component.ts
 +++ b/libs/angular/src/auth/components/two-factor.component.ts
-@@ -438,7 +438,6 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
+@@ -456,7 +456,6 @@ export class TwoFactorComponent extends CaptchaProtectedComponent implements OnI
      try {
        const request = new TwoFactorEmailRequest();
        request.email = await this.loginStrategyService.getEmail();
@@ -288,17 +335,19 @@ index e5f3230689..360753a332 100644
          await this.loginStrategyService.getSsoEmail2FaSessionToken();
        request.deviceIdentifier = await this.appIdService.getAppId();
 diff --git a/libs/angular/src/auth/components/update-password.component.ts b/libs/angular/src/auth/components/update-password.component.ts
-index 2ffffb6c5d..f477e825b0 100644
+index 264f351542..1b3cd529e3 100644
 --- a/libs/angular/src/auth/components/update-password.component.ts
 +++ b/libs/angular/src/auth/components/update-password.component.ts
-@@ -96,18 +96,12 @@ export class UpdatePasswordComponent extends BaseChangePasswordComponent {
+@@ -97,19 +97,10 @@ export class UpdatePasswordComponent extends BaseChangePasswordComponent {
+     return true;
    }
  
-   async performSubmitActions(
+-  async performSubmitActions(
 -    newMasterKeyHash: string,
-     newMasterKey: MasterKey,
-     newUserKey: [UserKey, EncString],
-   ) {
+-    newMasterKey: MasterKey,
+-    newUserKey: [UserKey, EncString],
+-  ) {
++  async performSubmitActions(newMasterKey: MasterKey, newUserKey: [UserKey, EncString]) {
      try {
        // Create Request
        const request = new PasswordRequest();
@@ -311,11 +360,11 @@ index 2ffffb6c5d..f477e825b0 100644
  
        // Update user's password
 diff --git a/libs/angular/src/auth/components/update-temp-password.component.ts b/libs/angular/src/auth/components/update-temp-password.component.ts
-index 0b4541fe52..bb861cf393 100644
+index bd6da6b760..a4b453308b 100644
 --- a/libs/angular/src/auth/components/update-temp-password.component.ts
 +++ b/libs/angular/src/auth/components/update-temp-password.component.ts
-@@ -121,10 +121,6 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
-         this.kdf,
+@@ -128,10 +128,6 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+         this.email.trim().toLowerCase(),
          this.kdfConfig,
        );
 -      const newPasswordHash = await this.cryptoService.hashMasterKey(
@@ -325,7 +374,7 @@ index 0b4541fe52..bb861cf393 100644
  
        // Grab user key
        const userKey = await this.cryptoService.getUserKey();
-@@ -135,24 +131,23 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+@@ -142,24 +138,20 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
          userKey,
        );
  
@@ -336,11 +385,12 @@ index 0b4541fe52..bb861cf393 100644
      }
    }
  
-   async performSubmitActions(
+-  async performSubmitActions(
 -    masterPasswordHash: string,
-     masterKey: MasterKey,
-     userKey: [UserKey, EncString],
-   ) {
+-    masterKey: MasterKey,
+-    userKey: [UserKey, EncString],
+-  ) {
++  async performSubmitActions(masterKey: MasterKey, userKey: [UserKey, EncString]) {
      try {
        switch (this.reason) {
          case ForceSetPasswordReason.AdminForcePasswordReset:
@@ -353,7 +403,7 @@ index 0b4541fe52..bb861cf393 100644
            break;
        }
  
-@@ -176,22 +171,20 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
+@@ -187,22 +179,20 @@ export class UpdateTempPasswordComponent extends BaseChangePasswordComponent {
        this.logService.error(e);
      }
    }
@@ -420,20 +470,24 @@ index 0fc5d84c09..d1f5145237 100644
      this.key = key;
      this.masterPasswordHint = masterPasswordHint;
      this.kdf = kdf;
-diff --git a/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts b/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
-index 9aa558ba53..ff12d13c29 100644
---- a/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
-+++ b/libs/common/src/auth/services/device-trust-crypto.service.implementation.ts
-@@ -102,7 +102,7 @@ export class DeviceTrustCryptoService implements DeviceTrustCryptoServiceAbstrac
+diff --git a/libs/common/src/auth/services/device-trust.service.implementation.ts b/libs/common/src/auth/services/device-trust.service.implementation.ts
+index dd98ce2b44..9eb7abc794 100644
+--- a/libs/common/src/auth/services/device-trust.service.implementation.ts
++++ b/libs/common/src/auth/services/device-trust.service.implementation.ts
+@@ -158,11 +158,7 @@ export class DeviceTrustService implements DeviceTrustServiceAbstraction {
      return deviceResponse;
    }
  
--  async rotateDevicesTrust(newUserKey: UserKey, masterPasswordHash: string): Promise<void> {
-+  async rotateDevicesTrust(newUserKey: UserKey): Promise<void> {
-     const currentDeviceKey = await this.getDeviceKey();
-     if (currentDeviceKey == null) {
-       // If the current device doesn't have a device key available to it, then we can't
-@@ -115,7 +115,6 @@ export class DeviceTrustCryptoService implements DeviceTrustCryptoServiceAbstrac
+-  async rotateDevicesTrust(
+-    userId: UserId,
+-    newUserKey: UserKey,
+-    masterPasswordHash: string,
+-  ): Promise<void> {
++  async rotateDevicesTrust(userId: UserId, newUserKey: UserKey): Promise<void> {
+     if (!userId) {
+       throw new Error("UserId is required. Cannot rotate device's trust.");
+     }
+@@ -179,7 +175,6 @@ export class DeviceTrustService implements DeviceTrustServiceAbstraction {
  
      const deviceIdentifier = await this.appIdService.getAppId();
      const secretVerificationRequest = new SecretVerificationRequest();
@@ -441,7 +495,7 @@ index 9aa558ba53..ff12d13c29 100644
  
      // Get the keys that are used in rotating a devices keys from the server
      const currentDeviceKeys = await this.devicesApiService.getDeviceKeys(
-@@ -149,7 +148,6 @@ export class DeviceTrustCryptoService implements DeviceTrustCryptoServiceAbstrac
+@@ -213,7 +208,6 @@ export class DeviceTrustService implements DeviceTrustServiceAbstraction {
      // then it can be added to trustRequest.otherDevices.
  
      const trustRequest = new UpdateDevicesTrustRequest();
@@ -450,21 +504,21 @@ index 9aa558ba53..ff12d13c29 100644
      trustRequest.otherDevices = [];
  
 diff --git a/libs/common/src/auth/services/user-verification/user-verification.service.ts b/libs/common/src/auth/services/user-verification/user-verification.service.ts
-index 431348c7fc..16fb79940d 100644
+index 94adad8bc7..0bf2a4db69 100644
 --- a/libs/common/src/auth/services/user-verification/user-verification.service.ts
 +++ b/libs/common/src/auth/services/user-verification/user-verification.service.ts
-@@ -101,19 +101,6 @@ export class UserVerificationService implements UserVerificationServiceAbstracti
+@@ -113,19 +113,6 @@ export class UserVerificationService implements UserVerificationServiceAbstracti
  
      if (verification.type === VerificationType.OTP) {
        request.otp = verification.secret;
 -    } else {
--      let masterKey = await this.cryptoService.getMasterKey();
+-      const userId = (await firstValueFrom(this.accountService.activeAccount$))?.id;
+-      let masterKey = await firstValueFrom(this.masterPasswordService.masterKey$(userId));
 -      if (!masterKey && !alreadyHashed) {
 -        masterKey = await this.cryptoService.makeMasterKey(
 -          verification.secret,
 -          await this.stateService.getEmail(),
--          await this.stateService.getKdfType(),
--          await this.stateService.getKdfConfig(),
+-          await this.kdfConfigService.getKdfConfig(),
 -        );
 -      }
 -      request.masterPasswordHash = alreadyHashed

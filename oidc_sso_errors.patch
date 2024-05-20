@@ -16,7 +16,7 @@ index 5fe65a065..526d973ca 100644
 +      this.platformUtilsService.showToast("error", null, e.message);
      }
 +    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-+    this.router.navigate(["/sso"]);
++    await this.router.navigate(["/sso"]);
    }
  
    private async navigateViaCallbackOrRoute(
