@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.5.1-3
+
+  - Upgrade to `v2024.5.1b`
+
 ## v2024.5.1-2
 
  - Fix SSO redirection when using subpath
