@@ -1,37 +1,11 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- .../app/auth/accept-organization.component.html   | 10 +---------
  apps/web/src/app/auth/sso.component.html          | 15 ---------------
  libs/angular/src/auth/components/sso.component.ts | 11 +----------
  libs/angular/src/auth/guards/redirect.guard.ts    |  2 +-
  4 files changed, 3 insertions(+), 35 deletions(-)
 
-diff --git a/apps/web/src/app/auth/accept-organization.component.html b/apps/web/src/app/auth/accept-organization.component.html
-index 3aef47df2..a72ee545c 100644
---- a/apps/web/src/app/auth/accept-organization.component.html
-+++ b/apps/web/src/app/auth/accept-organization.component.html
-@@ -25,19 +25,11 @@
-           <hr />
-           <div class="d-flex">
-             <a
--              routerLink="/login"
--              [queryParams]="{ email: email }"
-+              routerLink="/sso"
-               class="btn btn-primary btn-block"
-             >
-               {{ "logIn" | i18n }}
-             </a>
--            <a
--              routerLink="/register"
--              [queryParams]="{ email: email }"
--              class="btn btn-primary btn-block ml-2 mt-0"
--            >
--              {{ "createAccount" | i18n }}
--            </a>
-           </div>
-         </div>
-       </div>
 diff --git a/apps/web/src/app/auth/sso.component.html b/apps/web/src/app/auth/sso.component.html
 index fb56cead2..38bba693c 100644
 --- a/apps/web/src/app/auth/sso.component.html

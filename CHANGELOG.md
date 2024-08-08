@@ -1,5 +1,10 @@
 # Changelog
 
+## v2024.6.2-1
+
+  - Upgrade to `v2024.6.2b`
+  - Org invite patch is not longer necessary
+
 ## v2024.5.1-3
 
   - Upgrade to `v2024.5.1b`
