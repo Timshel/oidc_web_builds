@@ -64,18 +64,5 @@ if [ "$NO_BUILD" = false ] ; then
 	cd ../..
 fi
 
-# Apply the experimental patch
-git apply ../oidc_experimental.patch
-
-if [ "$NO_BUILD" = false ] ; then
-	cd apps/web
-	npm run dist:oss:selfhost
-	printf '{"version": "oidc_experimental-%s"}' $TAG_CURRENT > build/vw-version.json
-	mv build web-vault
-	tar -czvf ../../../"oidc_experimental_web_vault.tar.gz" web-vault --owner=0 --group=0
-	rm -rf web-vault
-	cd ../..
-fi
-
 cd ..
 rm -rf vault vw
