@@ -34,8 +34,9 @@ if [ "$NO_BUILD" = false ] ; then
 	npm audit fix || true
 fi
 
-# Apply sso login button
+# Apply sso login button and org invite patch
 git apply ../oidc_button.patch
+git apply ../oidc_invite.patch
 git apply ../oidc_subpath.patch
 
 if [ "$NO_BUILD" = false ] ; then

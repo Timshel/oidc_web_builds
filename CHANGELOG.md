@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.6.2-2
+
+  - New Org invite patch needed for invitation to survive SSO account creation
+
 ## v2024.6.2-1
 
   - Upgrade to `v2024.6.2b`

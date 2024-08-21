@@ -1,0 +1,23 @@
+Subject: [PATCH] Org invitation fix
+
+---
+ apps/web/src/app/auth/set-password.component.ts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/apps/web/src/app/auth/set-password.component.ts b/apps/web/src/app/auth/set-password.component.ts
+index ccd329dd64..8c80509af1 100644
+--- a/apps/web/src/app/auth/set-password.component.ts
++++ b/apps/web/src/app/auth/set-password.component.ts
+@@ -24,7 +24,7 @@ export class SetPasswordComponent extends BaseSetPasswordComponent {
+     await super.onSetPasswordSuccess(masterKey, userKey, keyPair);
+     // SSO JIT accepts org invites when setting their MP, meaning
+     // we can clear the deep linked url for accepting it.
+-    await this.routerService.getAndClearLoginRedirectUrl();
+-    await this.acceptOrganizationInviteService.clearOrganizationInvitation();
++    // await this.routerService.getAndClearLoginRedirectUrl();
++    // await this.acceptOrganizationInviteService.clearOrganizationInvitation();
+   }
+ }
+-- 
+2.39.2
+

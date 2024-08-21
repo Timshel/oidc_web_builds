@@ -12,6 +12,7 @@ This generate three different versions :
 
 - `button` closest to what is expected to be merge into [bw_web_builds](https://github.com/dani-garcia/bw_web_builds))
 	- restore the SSO login button ([patch](oidc_button.patch)) (
+	- allow organization invitation to survive sso account creation ([patch](oidc_invite.patch))
 - `override` add additionally :
 	- set `#sso` as the default redirect url
 	- remove some unnecessary logic ([patch](oidc_override.patch))
@@ -34,6 +35,7 @@ This will :
 - Copy ressources from the VaultWarden web vault project
 - Apply the VaultWarden web vault patch
 - Apply the button [patch](oidc_button.patch)
+- Apply the invite [patch](oidc_invite.patch)
 - Build the web vault application
 - Package it as `oidc_button_web_vault.tar.gz`.
 - Apply the override [patch](oidc_override.patch) to improve SSO flow
