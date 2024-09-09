@@ -53,6 +53,7 @@ fi
 git apply ../oidc_override.patch
 git apply ../oidc_sso_errors.patch
 git apply ../oidc_messages.patch
+git apply ../oidc_confirm_error.patch
 
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web

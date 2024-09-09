@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.6.2-4
+
+- Add an error message when trying to confirm a user with no public key
+
 ## v2024.6.2-3
 
 - Upgrade to `v2024.6.2c`
