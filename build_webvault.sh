@@ -18,7 +18,7 @@ rm -f
 git clone --depth 1  --branch "$VAULT_VERSION"  https://github.com/bitwarden/clients.git vault
 
 # Fetch vault warden
-git clone --depth 1  --branch "$VW_VERSION"  https://github.com/dani-garcia/bw_web_builds.git vw
+git clone --depth 1  --branch "$VW_VERSION"  https://github.com/BlackDex/bw_web_builds.git vw
 
 # Copy VW ressources
 cp -vf vw/resources/src/favicon.ico vault/apps/web/src/favicon.ico
@@ -34,8 +34,7 @@ if [ "$NO_BUILD" = false ] ; then
 	npm audit fix || true
 fi
 
-# Apply sso login button and org invite patch
-git apply ../oidc_button.patch
+# Apply org invite and subpath patch
 git apply ../oidc_invite.patch
 git apply ../oidc_subpath.patch
 

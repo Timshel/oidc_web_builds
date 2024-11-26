@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.6.2d-rc1
+
+- Upgrade to `BlackDex/bw_web_builds` to test dynamic CSS
+
 ## v2024.6.2-4
 
 - Add an error message when trying to confirm a user with no public key
