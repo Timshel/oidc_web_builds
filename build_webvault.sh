@@ -37,6 +37,7 @@ fi
 # Apply org invite and subpath patch
 git apply ../oidc_invite.patch
 git apply ../oidc_subpath.patch
+git apply ../oidc_sso_errors.patch
 
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
@@ -50,7 +51,6 @@ fi
 
 # Apply the override and messages patches
 git apply ../oidc_override.patch
-git apply ../oidc_sso_errors.patch
 git apply ../oidc_messages.patch
 git apply ../oidc_confirm_error.patch
 

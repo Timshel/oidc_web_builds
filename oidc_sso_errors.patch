@@ -1,14 +1,24 @@
 Subject: [PATCH] Display all sso errors and reset flow
 
 ---
- libs/angular/src/auth/components/sso.component.ts | 4 ++++
- 1 file changed, 4 insertions(+)
+ libs/angular/src/auth/components/sso.component.ts | 6 ++++++
+ libs/angular/src/auth/guards/redirect.guard.ts    | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
-index 5fe65a065..526d973ca 100644
+index 30815beef8..ce562f8d22 100644
 --- a/libs/angular/src/auth/components/sso.component.ts
 +++ b/libs/angular/src/auth/components/sso.component.ts
-@@ -333,7 +333,11 @@ export class SsoComponent {
+@@ -27,6 +27,8 @@ import { StateService } from "@bitwarden/common/platform/abstractions/state.serv
+ import { Utils } from "@bitwarden/common/platform/misc/utils";
+ import { PasswordGenerationServiceAbstraction } from "@bitwarden/common/tools/generator/password";
+ 
++import { defaultRoutes } from "../guards/redirect.guard";
++
+ @Directive()
+ export class SsoComponent {
+   identifier: string;
+@@ -363,7 +365,11 @@ export class SsoComponent {
          null,
          this.i18nService.t("ssoKeyConnectorError"),
        );
@@ -16,9 +26,22 @@ index 5fe65a065..526d973ca 100644
 +      this.platformUtilsService.showToast("error", null, e.message);
      }
 +    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-+    await this.router.navigate(["/sso"]);
++    await this.router.navigate([defaultRoutes.loggedOut]);
    }
  
    private async navigateViaCallbackOrRoute(
+diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
+index 760558dfb5..32adf64d52 100644
+--- a/libs/angular/src/auth/guards/redirect.guard.ts
++++ b/libs/angular/src/auth/guards/redirect.guard.ts
+@@ -15,7 +15,7 @@ export interface RedirectRoutes {
+   notDecrypted: string;
+ }
+ 
+-const defaultRoutes: RedirectRoutes = {
++export const defaultRoutes: RedirectRoutes = {
+   loggedIn: "/vault",
+   loggedOut: "/login",
+   locked: "/lock",
 -- 
-2.39.2
+2.39.5

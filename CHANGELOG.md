@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.6.2d-rc2
+
+- Apply the sso errors patch in the `button` distribution.
+
 ## v2024.6.2d-rc1
 
 - Upgrade to `BlackDex/bw_web_builds` to test dynamic CSS

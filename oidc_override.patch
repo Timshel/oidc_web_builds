@@ -67,7 +67,7 @@ index 4853b26e7..512b3a455 100644
 +++ b/libs/angular/src/auth/guards/redirect.guard.ts
 @@ -15,7 +15,7 @@ export interface RedirectRoutes {
  
- const defaultRoutes: RedirectRoutes = {
+ export const defaultRoutes: RedirectRoutes = {
    loggedIn: "/vault",
 -  loggedOut: "/login",
 +  loggedOut: "/sso",
