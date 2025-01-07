@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.12.0-1
+
+- Upgrade to `v2024.12.0`
+
 ## v2024.6.2d-rc2
 
 - Apply the sso errors patch in the `button` distribution.

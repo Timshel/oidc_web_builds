@@ -6,9 +6,9 @@ set -e
 TAG_CURRENT=$(git describe --tags HEAD)
 
 # Commit to fetch
-VAULT_VERSION=web-v2024.6.2
-VW_VERSION=dynamic-css
+VAULT_VERSION=web-v2024.12.0
+VW_VERSION=v2024.12.0
 
 # VaultWarden patch to apply
-# PATCH_NAME="$VW_VERSION"
-PATCH_NAME="v2024.6.2"
+PATCH_NAME="$VW_VERSION"
+#PATCH_NAME="v2024.12.0"

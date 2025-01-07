@@ -1,31 +1,31 @@
 Subject: [PATCH] Admin failed to confirm user error message
 
 ---
- .../app/admin-console/common/new-base.people.component.ts    | 5 +++++
+ .../src/app/admin-console/common/base-members.component.ts   | 5 +++++
  apps/web/src/locales/en/messages.json                        | 3 +++
  2 files changed, 8 insertions(+)
 
-diff --git a/apps/web/src/app/admin-console/common/new-base.people.component.ts b/apps/web/src/app/admin-console/common/new-base.people.component.ts
-index 17f504c74a..2316d878ff 100644
---- a/apps/web/src/app/admin-console/common/new-base.people.component.ts
-+++ b/apps/web/src/app/admin-console/common/new-base.people.component.ts
-@@ -376,6 +376,11 @@ export abstract class NewBasePeopleComponent<
+diff --git a/apps/web/src/app/admin-console/common/base-members.component.ts b/apps/web/src/app/admin-console/common/base-members.component.ts
+index 8de0d022e2..09506d9838 100644
+--- a/apps/web/src/app/admin-console/common/base-members.component.ts
++++ b/apps/web/src/app/admin-console/common/base-members.component.ts
+@@ -220,6 +220,11 @@ export abstract class BaseMembersComponent<UserView extends UserViewTypes> {
        }
        await confirmUser(publicKey);
      } catch (e) {
-+      this.platformUtilsService.showToast(
-+        "error",
-+        this.i18nService.t("errorAdminConfirmUser"),
-+        e.message,
-+      );
++      this.toastService.showToast({
++        variant: "error",
++        title: this.i18nService.t("errorAdminConfirmUser"),
++        message: e.message,
++      });
        this.logService.error(`Handled exception: ${e}`);
      }
    }
 diff --git a/apps/web/src/locales/en/messages.json b/apps/web/src/locales/en/messages.json
-index d7a21ad6d6..c995e201e8 100644
+index c68cc4acf9..f1f6c27648 100644
 --- a/apps/web/src/locales/en/messages.json
 +++ b/apps/web/src/locales/en/messages.json
-@@ -3190,6 +3190,9 @@
+@@ -3684,6 +3684,9 @@
        }
      }
    },
@@ -36,5 +36,5 @@ index d7a21ad6d6..c995e201e8 100644
      "message": "Edited user $ID$.",
      "placeholders": {
 -- 
-2.39.2
+2.39.5
 

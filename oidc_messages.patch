@@ -55,10 +55,10 @@ Subject: [PATCH] Use specific commit for messages
  51 files changed, 51 insertions(+), 51 deletions(-)
 
 diff --git a/apps/web/src/locales/af/messages.json b/apps/web/src/locales/af/messages.json
-index 2b11b7e..f8fc7d6 100644
+index d6fe5401d4..602b20018b 100644
 --- a/apps/web/src/locales/af/messages.json
 +++ b/apps/web/src/locales/af/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisasie-identifiseerder"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -68,10 +68,10 @@ index 2b11b7e..f8fc7d6 100644
    "enterpriseSingleSignOn": {
      "message": "Onderneming-enkelaanteken"
 diff --git a/apps/web/src/locales/ar/messages.json b/apps/web/src/locales/ar/messages.json
-index 2fa2138..56c660d 100644
+index 407ed12cca..f9f38030ad 100644
 --- a/apps/web/src/locales/ar/messages.json
 +++ b/apps/web/src/locales/ar/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "معرف المنظمة"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -81,10 +81,10 @@ index 2fa2138..56c660d 100644
    "enterpriseSingleSignOn": {
      "message": "تسجيل الدخول الأُحادي للمؤسسات – SSO"
 diff --git a/apps/web/src/locales/az/messages.json b/apps/web/src/locales/az/messages.json
-index 1a3813e..c1c5ca8 100644
+index 5f9a8fda09..eec3588fbe 100644
 --- a/apps/web/src/locales/az/messages.json
 +++ b/apps/web/src/locales/az/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Təşkilat identifikatoru"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -94,10 +94,10 @@ index 1a3813e..c1c5ca8 100644
    "enterpriseSingleSignOn": {
      "message": "Müəssisə üçün tək daxil olma"
 diff --git a/apps/web/src/locales/be/messages.json b/apps/web/src/locales/be/messages.json
-index de48c9c..2009ead 100644
+index ff1d68e970..127250d43f 100644
 --- a/apps/web/src/locales/be/messages.json
 +++ b/apps/web/src/locales/be/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Ідэнтыфікатар арганізацыі"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -107,10 +107,10 @@ index de48c9c..2009ead 100644
    "enterpriseSingleSignOn": {
      "message": "Адзіны ўваход прадпрыемства (SSO)"
 diff --git a/apps/web/src/locales/bg/messages.json b/apps/web/src/locales/bg/messages.json
-index f513bc1..4350309 100644
+index 6df82896f9..783ba88c0a 100644
 --- a/apps/web/src/locales/bg/messages.json
 +++ b/apps/web/src/locales/bg/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Идентификатор на организация"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -120,10 +120,10 @@ index f513bc1..4350309 100644
    "enterpriseSingleSignOn": {
      "message": "Еднократна идентификация (SSO)"
 diff --git a/apps/web/src/locales/bn/messages.json b/apps/web/src/locales/bn/messages.json
-index 26d1b51..cee0426 100644
+index 1e2fb12f3b..6c17f15140 100644
 --- a/apps/web/src/locales/bn/messages.json
 +++ b/apps/web/src/locales/bn/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -133,10 +133,10 @@ index 26d1b51..cee0426 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/bs/messages.json b/apps/web/src/locales/bs/messages.json
-index 8d8b073..edd80ce 100644
+index 5acd4aa9d6..08a9255b22 100644
 --- a/apps/web/src/locales/bs/messages.json
 +++ b/apps/web/src/locales/bs/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -146,10 +146,10 @@ index 8d8b073..edd80ce 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/ca/messages.json b/apps/web/src/locales/ca/messages.json
-index 1621adc..6853496 100644
+index a1b591f8df..94cfc94dfb 100644
 --- a/apps/web/src/locales/ca/messages.json
 +++ b/apps/web/src/locales/ca/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identificador d’organització"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -159,10 +159,10 @@ index 1621adc..6853496 100644
    "enterpriseSingleSignOn": {
      "message": "Inici de sessió únic d'empresa"
 diff --git a/apps/web/src/locales/cs/messages.json b/apps/web/src/locales/cs/messages.json
-index 6a19df3..48609cf 100644
+index 147af1e94a..5a6bad3591 100644
 --- a/apps/web/src/locales/cs/messages.json
 +++ b/apps/web/src/locales/cs/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identifikátor organizace"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -172,10 +172,10 @@ index 6a19df3..48609cf 100644
    "enterpriseSingleSignOn": {
      "message": "Jednotné podnikové přihlášení"
 diff --git a/apps/web/src/locales/da/messages.json b/apps/web/src/locales/da/messages.json
-index fd395c8..4dc6ae6 100644
+index eeb2d86c9f..bd87316d79 100644
 --- a/apps/web/src/locales/da/messages.json
 +++ b/apps/web/src/locales/da/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisationsidentifikator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -185,10 +185,10 @@ index fd395c8..4dc6ae6 100644
    "enterpriseSingleSignOn": {
      "message": "Virksomheds Single Sign-On"
 diff --git a/apps/web/src/locales/de/messages.json b/apps/web/src/locales/de/messages.json
-index 81ca779..0aa12a0 100644
+index 59fd62a30e..8bad1ce105 100644
 --- a/apps/web/src/locales/de/messages.json
 +++ b/apps/web/src/locales/de/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisationskennung"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -198,10 +198,10 @@ index 81ca779..0aa12a0 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Single Sign-on"
 diff --git a/apps/web/src/locales/en/messages.json b/apps/web/src/locales/en/messages.json
-index 9ff2aeb..fb61bfc 100644
+index eb98a1d757..c68cc4acf9 100644
 --- a/apps/web/src/locales/en/messages.json
 +++ b/apps/web/src/locales/en/messages.json
-@@ -3912,7 +3912,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -211,10 +211,10 @@ index 9ff2aeb..fb61bfc 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/en_IN/messages.json b/apps/web/src/locales/en_IN/messages.json
-index fcefb38..e31aa5b 100644
+index 1ca16a1704..f4660228f2 100644
 --- a/apps/web/src/locales/en_IN/messages.json
 +++ b/apps/web/src/locales/en_IN/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisation identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -224,10 +224,10 @@ index fcefb38..e31aa5b 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/eo/messages.json b/apps/web/src/locales/eo/messages.json
-index 6e0ad0c..fcad5d6 100644
+index 7c4061ad35..f7a945ffe0 100644
 --- a/apps/web/src/locales/eo/messages.json
 +++ b/apps/web/src/locales/eo/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identigilo de la organizo"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -237,10 +237,10 @@ index 6e0ad0c..fcad5d6 100644
    "enterpriseSingleSignOn": {
      "message": "Entreprena Ununura Ensaluto"
 diff --git a/apps/web/src/locales/es/messages.json b/apps/web/src/locales/es/messages.json
-index c4e6c9e..33a123f 100644
+index ef1152c04b..71db027e5a 100644
 --- a/apps/web/src/locales/es/messages.json
 +++ b/apps/web/src/locales/es/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identificador de la organización"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -250,10 +250,10 @@ index c4e6c9e..33a123f 100644
    "enterpriseSingleSignOn": {
      "message": "Inicio de sesión único empresarial"
 diff --git a/apps/web/src/locales/et/messages.json b/apps/web/src/locales/et/messages.json
-index 2dcc6e2..861014a 100644
+index b82a600afa..ed20c672df 100644
 --- a/apps/web/src/locales/et/messages.json
 +++ b/apps/web/src/locales/et/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisatsiooni identifikaator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -263,10 +263,10 @@ index 2dcc6e2..861014a 100644
    "enterpriseSingleSignOn": {
      "message": "Ettevõtte Single Sign-On"
 diff --git a/apps/web/src/locales/eu/messages.json b/apps/web/src/locales/eu/messages.json
-index 5799778..f595319 100644
+index bd8e1febd5..d6da40c117 100644
 --- a/apps/web/src/locales/eu/messages.json
 +++ b/apps/web/src/locales/eu/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Erakundearen identifikatzailea"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -276,10 +276,10 @@ index 5799778..f595319 100644
    "enterpriseSingleSignOn": {
      "message": "Enpresentzako saio hasiera bakarra"
 diff --git a/apps/web/src/locales/fa/messages.json b/apps/web/src/locales/fa/messages.json
-index ff29324..2ab1b11 100644
+index beb39cd47a..6c4f2d9f12 100644
 --- a/apps/web/src/locales/fa/messages.json
 +++ b/apps/web/src/locales/fa/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "شناسه سازمان"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -289,10 +289,10 @@ index ff29324..2ab1b11 100644
    "enterpriseSingleSignOn": {
      "message": "ورود به سیستم پروژه"
 diff --git a/apps/web/src/locales/fi/messages.json b/apps/web/src/locales/fi/messages.json
-index 51b2af3..ce893db 100644
+index 4a27d1b5f5..46de314d2c 100644
 --- a/apps/web/src/locales/fi/messages.json
 +++ b/apps/web/src/locales/fi/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisaation tunniste"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -302,10 +302,10 @@ index 51b2af3..ce893db 100644
    "enterpriseSingleSignOn": {
      "message": "Yrityksen kertakirjautuminen"
 diff --git a/apps/web/src/locales/fil/messages.json b/apps/web/src/locales/fil/messages.json
-index a8e5286..f06c2a8 100644
+index 536dbeaebc..5ca595ba06 100644
 --- a/apps/web/src/locales/fil/messages.json
 +++ b/apps/web/src/locales/fil/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Tagatukoy ng organisasyon"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -315,10 +315,10 @@ index a8e5286..f06c2a8 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Single Sign-On sa Filipino ay Isang Sign-On na Enterprise"
 diff --git a/apps/web/src/locales/fr/messages.json b/apps/web/src/locales/fr/messages.json
-index 235180c..bba600f 100644
+index 3bbed3aba4..6be42667c7 100644
 --- a/apps/web/src/locales/fr/messages.json
 +++ b/apps/web/src/locales/fr/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identifiant de l'organisation"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -328,10 +328,10 @@ index 235180c..bba600f 100644
    "enterpriseSingleSignOn": {
      "message": "Portail de connexion unique d'entreprise (Single Sign-On)"
 diff --git a/apps/web/src/locales/he/messages.json b/apps/web/src/locales/he/messages.json
-index 2bf2db8..c51122e 100644
+index 9da5dfe492..f1191589cb 100644
 --- a/apps/web/src/locales/he/messages.json
 +++ b/apps/web/src/locales/he/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "מזהה ארגוני"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -341,10 +341,10 @@ index 2bf2db8..c51122e 100644
    "enterpriseSingleSignOn": {
      "message": "כניסה ארגונית אחודה"
 diff --git a/apps/web/src/locales/hi/messages.json b/apps/web/src/locales/hi/messages.json
-index 7a01559..a143664 100644
+index 7c8ecd4473..3ec79e823f 100644
 --- a/apps/web/src/locales/hi/messages.json
 +++ b/apps/web/src/locales/hi/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -354,10 +354,10 @@ index 7a01559..a143664 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/hr/messages.json b/apps/web/src/locales/hr/messages.json
-index 32bb069..3821bf0 100644
+index 5a5ca9b979..7c943f5e35 100644
 --- a/apps/web/src/locales/hr/messages.json
 +++ b/apps/web/src/locales/hr/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identifikator organizacije"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -367,10 +367,10 @@ index 32bb069..3821bf0 100644
    "enterpriseSingleSignOn": {
      "message": "Jedinstvena prijava na razini tvrtke (SSO)"
 diff --git a/apps/web/src/locales/id/messages.json b/apps/web/src/locales/id/messages.json
-index 1923fad..307dd2e 100644
+index 53b7fb2714..8deef10f03 100644
 --- a/apps/web/src/locales/id/messages.json
 +++ b/apps/web/src/locales/id/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Pengenal Organisasi"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -380,10 +380,10 @@ index 1923fad..307dd2e 100644
    "enterpriseSingleSignOn": {
      "message": "Sistem Masuk Tunggal Perusahaan"
 diff --git a/apps/web/src/locales/it/messages.json b/apps/web/src/locales/it/messages.json
-index d31a478..2ef2b9f 100644
+index e37992b812..5183d4f082 100644
 --- a/apps/web/src/locales/it/messages.json
 +++ b/apps/web/src/locales/it/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identificativo dell'organizzazione"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -393,10 +393,10 @@ index d31a478..2ef2b9f 100644
    "enterpriseSingleSignOn": {
      "message": "Single Sign-On aziendale"
 diff --git a/apps/web/src/locales/ja/messages.json b/apps/web/src/locales/ja/messages.json
-index ac23ddd..7a23007 100644
+index c212cb6f93..c9249412c9 100644
 --- a/apps/web/src/locales/ja/messages.json
 +++ b/apps/web/src/locales/ja/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "組織識別子"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -406,10 +406,10 @@ index ac23ddd..7a23007 100644
    "enterpriseSingleSignOn": {
      "message": "組織のシングルサインオン"
 diff --git a/apps/web/src/locales/ka/messages.json b/apps/web/src/locales/ka/messages.json
-index 5648856..c3b99ae 100644
+index a3a7d9157e..9734a290e4 100644
 --- a/apps/web/src/locales/ka/messages.json
 +++ b/apps/web/src/locales/ka/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -419,10 +419,10 @@ index 5648856..c3b99ae 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/lv/messages.json b/apps/web/src/locales/lv/messages.json
-index c6975de..9850e97 100644
+index 81d0dde4e6..71a0bf7bf2 100644
 --- a/apps/web/src/locales/lv/messages.json
 +++ b/apps/web/src/locales/lv/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Apvienības identifikators"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -432,10 +432,10 @@ index c6975de..9850e97 100644
    "enterpriseSingleSignOn": {
      "message": "Uzņēmuma vienotā pieteikšanās"
 diff --git a/apps/web/src/locales/ml/messages.json b/apps/web/src/locales/ml/messages.json
-index 7896fe2..53fc44a 100644
+index 559c1e4768..112823dca6 100644
 --- a/apps/web/src/locales/ml/messages.json
 +++ b/apps/web/src/locales/ml/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "സംഘടനയുടെ ഐഡന്റിഫയർ"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -445,10 +445,10 @@ index 7896fe2..53fc44a 100644
    "enterpriseSingleSignOn": {
      "message": "എന്റർപ്രൈസ് SSO"
 diff --git a/apps/web/src/locales/nb/messages.json b/apps/web/src/locales/nb/messages.json
-index 1d70736..2cd4c4a 100644
+index 5145af4cc1..ae3794fc5e 100644
 --- a/apps/web/src/locales/nb/messages.json
 +++ b/apps/web/src/locales/nb/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisasjons identifikator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -458,10 +458,10 @@ index 1d70736..2cd4c4a 100644
    "enterpriseSingleSignOn": {
      "message": "Bedriftsinnlogging (SSO)"
 diff --git a/apps/web/src/locales/nl/messages.json b/apps/web/src/locales/nl/messages.json
-index faccc73..e1ec11c 100644
+index 0f1025abd7..5149dee349 100644
 --- a/apps/web/src/locales/nl/messages.json
 +++ b/apps/web/src/locales/nl/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisatie-identificatie"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -471,10 +471,10 @@ index faccc73..e1ec11c 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Single Sign-On"
 diff --git a/apps/web/src/locales/nn/messages.json b/apps/web/src/locales/nn/messages.json
-index 3f5494a..9ece3ee 100644
+index eb9058d8d3..5d4b69d306 100644
 --- a/apps/web/src/locales/nn/messages.json
 +++ b/apps/web/src/locales/nn/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -484,10 +484,10 @@ index 3f5494a..9ece3ee 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/pl/messages.json b/apps/web/src/locales/pl/messages.json
-index 950467d..9ba8f2a 100644
+index e02e23842c..a0cd370093 100644
 --- a/apps/web/src/locales/pl/messages.json
 +++ b/apps/web/src/locales/pl/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identyfikator organizacji"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -497,10 +497,10 @@ index 950467d..9ba8f2a 100644
    "enterpriseSingleSignOn": {
      "message": "Logowanie jednokrotne"
 diff --git a/apps/web/src/locales/pt_BR/messages.json b/apps/web/src/locales/pt_BR/messages.json
-index 30e8021..fe15565 100644
+index 5df8556ae6..61f50dea34 100644
 --- a/apps/web/src/locales/pt_BR/messages.json
 +++ b/apps/web/src/locales/pt_BR/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identificador da Organização"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -510,10 +510,10 @@ index 30e8021..fe15565 100644
    "enterpriseSingleSignOn": {
      "message": "Iniciar Sessão Empresarial Única"
 diff --git a/apps/web/src/locales/ro/messages.json b/apps/web/src/locales/ro/messages.json
-index 4c78e94..da8bd3a 100644
+index c5c4d7b93a..18c603be10 100644
 --- a/apps/web/src/locales/ro/messages.json
 +++ b/apps/web/src/locales/ro/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identificator organizație"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -523,10 +523,10 @@ index 4c78e94..da8bd3a 100644
    "enterpriseSingleSignOn": {
      "message": "Autentificare unică întreprindere"
 diff --git a/apps/web/src/locales/ru/messages.json b/apps/web/src/locales/ru/messages.json
-index 43cf40c..0089649 100644
+index 6d86d11431..ee813ea6dd 100644
 --- a/apps/web/src/locales/ru/messages.json
 +++ b/apps/web/src/locales/ru/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Идентификатор организации"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -536,10 +536,10 @@ index 43cf40c..0089649 100644
    "enterpriseSingleSignOn": {
      "message": "Единая корпоративная авторизация"
 diff --git a/apps/web/src/locales/si/messages.json b/apps/web/src/locales/si/messages.json
-index 740f989..23925be 100644
+index fd6077f5f1..1a6ac53fa8 100644
 --- a/apps/web/src/locales/si/messages.json
 +++ b/apps/web/src/locales/si/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -549,10 +549,10 @@ index 740f989..23925be 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/sk/messages.json b/apps/web/src/locales/sk/messages.json
-index d05808c..a221090 100644
+index 54b03ab3e4..48caa9047d 100644
 --- a/apps/web/src/locales/sk/messages.json
 +++ b/apps/web/src/locales/sk/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Identifikátor organizácie"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -562,10 +562,10 @@ index d05808c..a221090 100644
    "enterpriseSingleSignOn": {
      "message": "Jednotné prihlásenie pre podniky (SSO)"
 diff --git a/apps/web/src/locales/sl/messages.json b/apps/web/src/locales/sl/messages.json
-index 2fcb958..2bc482d 100644
+index 07f6dc1b91..5ac3f5fedc 100644
 --- a/apps/web/src/locales/sl/messages.json
 +++ b/apps/web/src/locales/sl/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -575,10 +575,10 @@ index 2fcb958..2bc482d 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/sr/messages.json b/apps/web/src/locales/sr/messages.json
-index bab17c3..3e8ce8e 100644
+index 6d2b8a18cf..9216c22d2a 100644
 --- a/apps/web/src/locales/sr/messages.json
 +++ b/apps/web/src/locales/sr/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Идентификатор организације"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -588,10 +588,10 @@ index bab17c3..3e8ce8e 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Једна Пријава"
 diff --git a/apps/web/src/locales/sr_CS/messages.json b/apps/web/src/locales/sr_CS/messages.json
-index 83ec7ea..c708ef0 100644
+index 4a9125537c..eb545c2ae9 100644
 --- a/apps/web/src/locales/sr_CS/messages.json
 +++ b/apps/web/src/locales/sr_CS/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -601,7 +601,7 @@ index 83ec7ea..c708ef0 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/sr_CY/messages.json b/apps/web/src/locales/sr_CY/messages.json
-index c2901f3..db724cd 100644
+index c2901f39c1..db724cd334 100644
 --- a/apps/web/src/locales/sr_CY/messages.json
 +++ b/apps/web/src/locales/sr_CY/messages.json
 @@ -3483,7 +3483,7 @@
@@ -614,10 +614,10 @@ index c2901f3..db724cd 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Једна Пријава"
 diff --git a/apps/web/src/locales/sv/messages.json b/apps/web/src/locales/sv/messages.json
-index 736bd83..230f785 100644
+index bd67758aaa..a23f2a5ef7 100644
 --- a/apps/web/src/locales/sv/messages.json
 +++ b/apps/web/src/locales/sv/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organisationens Identifierare"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -627,10 +627,10 @@ index 736bd83..230f785 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/te/messages.json b/apps/web/src/locales/te/messages.json
-index 6c9b011..d50bd65 100644
+index 1ad5f52a94..0975a2cef2 100644
 --- a/apps/web/src/locales/te/messages.json
 +++ b/apps/web/src/locales/te/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -640,10 +640,10 @@ index 6c9b011..d50bd65 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/th/messages.json b/apps/web/src/locales/th/messages.json
-index 23e6b3f..1df7282 100644
+index 6744d955ca..abc1a5265e 100644
 --- a/apps/web/src/locales/th/messages.json
 +++ b/apps/web/src/locales/th/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -653,23 +653,23 @@ index 23e6b3f..1df7282 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/tr/messages.json b/apps/web/src/locales/tr/messages.json
-index 2080838..07538c9 100644
+index e83bd6667d..0da387ef66 100644
 --- a/apps/web/src/locales/tr/messages.json
 +++ b/apps/web/src/locales/tr/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Kuruluş tanımlayıcı"
    },
    "ssoLogInWithOrgIdentifier": {
--    "message": "Kuruluşunuzun tek oturum açma portalını kullanarak giriş yapabilirsiniz. Başlamak için lütfen kuruluşunuzun SSO tanımlayıcısını girin."
-+    "message": "Kuruluşunuzun tek oturum açma portalını kullanarak giriş yapabilirsiniz."
+-    "message": "Kuruluşunuzun çoklu oturum açma portalını kullanarak giriş yapabilirsiniz. Başlamak için lütfen kuruluşunuzun SSO tanımlayıcısını girin."
++    "message": "Kuruluşunuzun çoklu oturum açma portalını kullanarak giriş yapabilirsiniz."
    },
    "enterpriseSingleSignOn": {
-     "message": "Kurumsal tek oturum açma"
+     "message": "Kurumsal çoklu oturum açma"
 diff --git a/apps/web/src/locales/uk/messages.json b/apps/web/src/locales/uk/messages.json
-index 4479545..b03dfa8 100644
+index bde7ab4dbe..59edf8016e 100644
 --- a/apps/web/src/locales/uk/messages.json
 +++ b/apps/web/src/locales/uk/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Ідентифікатор організації"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -679,10 +679,10 @@ index 4479545..b03dfa8 100644
    "enterpriseSingleSignOn": {
      "message": "Єдиний корпоративний вхід (SSO)"
 diff --git a/apps/web/src/locales/vi/messages.json b/apps/web/src/locales/vi/messages.json
-index 6bd4716..e920d5c 100644
+index d6701a713e..e5ed59f74f 100644
 --- a/apps/web/src/locales/vi/messages.json
 +++ b/apps/web/src/locales/vi/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -692,10 +692,10 @@ index 6bd4716..e920d5c 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise single sign-on"
 diff --git a/apps/web/src/locales/zh_CN/messages.json b/apps/web/src/locales/zh_CN/messages.json
-index 104f743..4ebf7d9 100644
+index c3b1c6a5ef..7a72cfb900 100644
 --- a/apps/web/src/locales/zh_CN/messages.json
 +++ b/apps/web/src/locales/zh_CN/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "组织标识符"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -705,10 +705,10 @@ index 104f743..4ebf7d9 100644
    "enterpriseSingleSignOn": {
      "message": "企业单点登录"
 diff --git a/apps/web/src/locales/zh_TW/messages.json b/apps/web/src/locales/zh_TW/messages.json
-index 783b1c8..dc1104e 100644
+index 2d39d982fc..d423d2f41b 100644
 --- a/apps/web/src/locales/zh_TW/messages.json
 +++ b/apps/web/src/locales/zh_TW/messages.json
-@@ -3875,7 +3875,7 @@
+@@ -4704,7 +4704,7 @@
      "message": "組織識別碼"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -718,5 +718,5 @@ index 783b1c8..dc1104e 100644
    "enterpriseSingleSignOn": {
      "message": "企業單一登入"
 -- 
-2.39.2
+2.39.5
 

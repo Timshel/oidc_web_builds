@@ -1,71 +1,52 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- apps/web/src/app/auth/sso.component.html          | 15 ---------------
- libs/angular/src/auth/components/sso.component.ts | 11 +----------
- libs/angular/src/auth/guards/redirect.guard.ts    |  2 +-
- 4 files changed, 3 insertions(+), 35 deletions(-)
+ apps/web/src/app/auth/sso.component.html          | 7 -------
+ apps/web/src/app/auth/sso.component.ts            | 2 +-
+ libs/angular/src/auth/guards/redirect.guard.ts    | 2 +-
+ 2 files changed, 2 insertion(+), 9 deletions(-)
 
 diff --git a/apps/web/src/app/auth/sso.component.html b/apps/web/src/app/auth/sso.component.html
-index fb56cead2..38bba693c 100644
+index 59abc92e87..0a136f5a4f 100644
 --- a/apps/web/src/app/auth/sso.component.html
 +++ b/apps/web/src/app/auth/sso.component.html
-@@ -15,18 +15,6 @@
-         </div>
-         <div class="card-body" *ngIf="!loggingIn">
-           <p>{{ "ssoLogInWithOrgIdentifier" | i18n }}</p>
--          <div class="form-group">
--            <label for="identifier">{{ "ssoIdentifier" | i18n }}</label>
--            <input
--              id="identifier"
--              class="form-control"
--              type="text"
--              name="Identifier"
--              [(ngModel)]="identifier"
--              required
--              appAutofocus
--            />
--          </div>
-           <hr />
-           <div class="d-flex">
-             <button
-@@ -41,9 +29,6 @@
-                 aria-hidden="true"
-               ></i>
-             </button>
--            <a routerLink="/login" class="btn btn-outline-secondary btn-block ml-2 mt-0">
--              {{ "cancel" | i18n }}
--            </a>
-           </div>
-         </div>
-       </div>
-diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
-index fe02304a4..5fe65a065 100644
---- a/libs/angular/src/auth/components/sso.component.ts
-+++ b/libs/angular/src/auth/components/sso.component.ts
-@@ -94,16 +94,7 @@ export class SsoComponent {
-   }
+@@ -5,18 +5,11 @@
+   </div>
+   <div *ngIf="!loggingIn">
+     <p bitTypography="body1">{{ "ssoLogInWithOrgIdentifier" | i18n }}</p>
+-    <bit-form-field>
+-      <bit-label>{{ "ssoIdentifier" | i18n }}</bit-label>
+-      <input bitInput type="text" formControlName="identifier" appAutofocus />
+-    </bit-form-field>
+     <hr />
+     <div class="tw-flex tw-gap-2">
+       <button type="submit" bitButton bitFormButton buttonType="primary" [block]="true">
+         {{ "logIn" | i18n }}
+       </button>
+-      <a bitButton buttonType="secondary" routerLink="/login" [block]="true">
+-        {{ "cancel" | i18n }}
+-      </a>
+     </div>
+   </div>
+ </form>
+diff --git a/apps/web/src/app/auth/sso.component.ts b/apps/web/src/app/auth/sso.component.ts
+index 019ab5e5ac..ebfcb9cbbd 100644
+--- a/apps/web/src/app/auth/sso.component.ts
++++ b/apps/web/src/app/auth/sso.component.ts
+@@ -38,7 +38,7 @@ import { PasswordGenerationServiceAbstraction } from "@bitwarden/generator-legac
+ // eslint-disable-next-line rxjs-angular/prefer-takeuntil
+ export class SsoComponent extends BaseSsoComponent implements OnInit {
+   protected formGroup = new FormGroup({
+-    identifier: new FormControl(null, [Validators.required]),
++    identifier: new FormControl("Vaultwarden", [Validators.required]),
+   });
  
-   async submit(returnUri?: string, includeUserIdentifier?: boolean) {
--    if (this.identifier == null || this.identifier === "") {
--      this.platformUtilsService.showToast(
--        "error",
--        this.i18nService.t("ssoValidationFailed"),
--        this.i18nService.t("ssoIdentifierRequired"),
--      );
--      return;
--    }
--
--    this.initiateSsoFormPromise = this.apiService.preValidateSso(this.identifier);
-+    this.initiateSsoFormPromise = this.apiService.preValidateSso("VaultWarden");
-     const response = await this.initiateSsoFormPromise;
- 
-     const authorizeUrl = await this.buildAuthorizeUrl(
+   get identifierFormControl() {
 diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
-index 4853b26e7..512b3a455 100644
+index 7717d325a6..8161adda75 100644
 --- a/libs/angular/src/auth/guards/redirect.guard.ts
 +++ b/libs/angular/src/auth/guards/redirect.guard.ts
-@@ -15,7 +15,7 @@ export interface RedirectRoutes {
+@@ -17,7 +17,7 @@ export interface RedirectRoutes {
  
  export const defaultRoutes: RedirectRoutes = {
    loggedIn: "/vault",

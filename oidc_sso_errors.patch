@@ -1,29 +1,33 @@
 Subject: [PATCH] Display all sso errors and reset flow
 
 ---
- libs/angular/src/auth/components/sso.component.ts | 6 ++++++
- libs/angular/src/auth/guards/redirect.guard.ts    | 2 +-
- 2 files changed, 7 insertions(+), 1 deletion(-)
+ libs/angular/src/auth/components/sso.component.ts | 10 ++++++++++
+ libs/angular/src/auth/guards/redirect.guard.ts    |  2 +-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/libs/angular/src/auth/components/sso.component.ts b/libs/angular/src/auth/components/sso.component.ts
-index 30815beef8..ce562f8d22 100644
+index ac64ae0246..1ed66e5b6f 100644
 --- a/libs/angular/src/auth/components/sso.component.ts
 +++ b/libs/angular/src/auth/components/sso.component.ts
-@@ -27,6 +27,8 @@ import { StateService } from "@bitwarden/common/platform/abstractions/state.serv
- import { Utils } from "@bitwarden/common/platform/misc/utils";
- import { PasswordGenerationServiceAbstraction } from "@bitwarden/common/tools/generator/password";
+@@ -29,6 +29,8 @@ import { Utils } from "@bitwarden/common/platform/misc/utils";
+ import { ToastService } from "@bitwarden/components";
+ import { PasswordGenerationServiceAbstraction } from "@bitwarden/generator-legacy";
  
 +import { defaultRoutes } from "../guards/redirect.guard";
 +
  @Directive()
- export class SsoComponent {
+ export class SsoComponent implements OnInit {
    identifier: string;
-@@ -363,7 +365,11 @@ export class SsoComponent {
-         null,
-         this.i18nService.t("ssoKeyConnectorError"),
-       );
+@@ -389,7 +391,15 @@ export class SsoComponent implements OnInit {
+         title: null,
+         message: this.i18nService.t("ssoKeyConnectorError"),
+       });
 +    } else {
-+      this.platformUtilsService.showToast("error", null, e.message);
++      this.toastService.showToast({
++        variant: "error",
++        title: null,
++        message: e.message,
++      });
      }
 +    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 +    await this.router.navigate([defaultRoutes.loggedOut]);
@@ -31,7 +35,7 @@ index 30815beef8..ce562f8d22 100644
  
    private async navigateViaCallbackOrRoute(
 diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
-index 760558dfb5..32adf64d52 100644
+index f79f5d3c4b..7717d325a6 100644
 --- a/libs/angular/src/auth/guards/redirect.guard.ts
 +++ b/libs/angular/src/auth/guards/redirect.guard.ts
 @@ -15,7 +15,7 @@ export interface RedirectRoutes {
@@ -45,3 +49,4 @@ index 760558dfb5..32adf64d52 100644
    locked: "/lock",
 -- 
 2.39.5
+
