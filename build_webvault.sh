@@ -8,6 +8,18 @@ if [ "$1" = "--only-patch" ] ; then
   NO_BUILD=true
 fi
 
+function replace_embedded_svg_icon() {
+if [ ! -f "$1" ]; then echo "$1 does not exist"; exit 255; fi
+if [ ! -f "$2" ]; then echo "$2 does not exist"; exit 255; fi
+
+echo "'$1' -> '$2'"
+
+first='`$'
+last='^`'
+sed -i "/$first/,/$last/{ /$first/{p; r $1
+}; /$last/p; d }" "$2"
+}
+
 source build_versions.sh
 
 rm -rf vault vw oidc_button_web_vault.tar.gz oidc_override_web_vault.tar.gz
@@ -23,6 +35,26 @@ git clone --depth 1  --branch "$VW_VERSION"  https://github.com/dani-garcia/bw_w
 # Copy VW ressources
 cp -vf vw/resources/src/favicon.ico vault/apps/web/src/favicon.ico
 cp -rvf vw/resources/src/images vault/apps/web/src/
+
+echo "Patching logos"
+replace_embedded_svg_icon \
+	vw/resources/vaultwarden-admin-console-logo.svg \
+	vault/apps/web/src/app/admin-console/icons/admin-console-logo.ts
+replace_embedded_svg_icon \
+	vw/resources/vaultwarden-password-manager-logo.svg \
+	vault/apps/web/src/app/layouts/password-manager-logo.ts
+replace_embedded_svg_icon \
+	vw/resources/src/images/logo.svg \
+	vault/libs/auth/src/angular/icons/bitwarden-logo.icon.ts
+replace_embedded_svg_icon \
+	vw/resources/vaultwarden-icon.svg \
+	vault/libs/auth/src/angular/icons/bitwarden-shield.icon.ts
+
+echo "Remove non-free bitwarden_license/ code"
+rm -rf vault/bitwarden_license/
+if [ -d "vault/apps/web/src/app/tools/access-intelligence/" ]; then
+    rm -rf vault/apps/web/src/app/tools/access-intelligence/
+fi
 
 # Apply VW patch
 cd vault

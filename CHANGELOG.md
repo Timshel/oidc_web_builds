@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.12.0-2
+
+- Fix missing logo patch
+
 ## v2024.12.0-1
 
 - Upgrade to `v2024.12.0`
