@@ -1,5 +1,9 @@
 # Changelog
 
+## v2024.12.0-3
+
+- Add patch to allow to hide Master password login
+
 ## v2024.12.0-2
 
 - Fix missing logo patch

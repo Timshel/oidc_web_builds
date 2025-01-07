@@ -70,6 +70,7 @@ fi
 git apply ../oidc_invite.patch
 git apply ../oidc_subpath.patch
 git apply ../oidc_sso_errors.patch
+git apply ../oidc_hide_master_password_login.patch
 
 if [ "$NO_BUILD" = false ] ; then
 	cd apps/web
