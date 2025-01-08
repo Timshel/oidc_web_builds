@@ -6,10 +6,10 @@ Subject: [PATCH] Use /sso as default login url
  libs/angular/src/auth/guards/redirect.guard.ts    | 2 +-
  2 files changed, 2 insertion(+), 9 deletions(-)
 
-diff --git a/apps/web/src/app/auth/sso.component.html b/apps/web/src/app/auth/sso.component.html
+diff --git a/apps/web/src/app/auth/sso-v1.component.html b/apps/web/src/app/auth/sso-v1.component.html
 index 59abc92e87..0a136f5a4f 100644
---- a/apps/web/src/app/auth/sso.component.html
-+++ b/apps/web/src/app/auth/sso.component.html
+--- a/apps/web/src/app/auth/sso-v1.component.html
++++ b/apps/web/src/app/auth/sso-v1.component.html
 @@ -5,18 +5,11 @@
    </div>
    <div *ngIf="!loggingIn">
@@ -29,13 +29,13 @@ index 59abc92e87..0a136f5a4f 100644
      </div>
    </div>
  </form>
-diff --git a/apps/web/src/app/auth/sso.component.ts b/apps/web/src/app/auth/sso.component.ts
-index 019ab5e5ac..ebfcb9cbbd 100644
---- a/apps/web/src/app/auth/sso.component.ts
-+++ b/apps/web/src/app/auth/sso.component.ts
-@@ -38,7 +38,7 @@ import { PasswordGenerationServiceAbstraction } from "@bitwarden/generator-legac
+diff --git a/apps/web/src/app/auth/sso-v1.component.ts b/apps/web/src/app/auth/sso-v1.component.ts
+index 8699ecf7b2..7364af5c4f 100644
+--- a/apps/web/src/app/auth/sso-v1.component.ts
++++ b/apps/web/src/app/auth/sso-v1.component.ts
+@@ -40,7 +40,7 @@ import { PasswordGenerationServiceAbstraction } from "@bitwarden/generator-legac
  // eslint-disable-next-line rxjs-angular/prefer-takeuntil
- export class SsoComponent extends BaseSsoComponent implements OnInit {
+ export class SsoComponentV1 extends BaseSsoComponent implements OnInit {
    protected formGroup = new FormGroup({
 -    identifier: new FormControl(null, [Validators.required]),
 +    identifier: new FormControl("Vaultwarden", [Validators.required]),

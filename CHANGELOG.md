@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.1.0-1
+
+- Upgrade to `v2025.1.0`
+
 ## v2024.12.0-3
 
 - Add patch to allow to hide Master password login

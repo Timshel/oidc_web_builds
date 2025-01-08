@@ -55,551 +55,551 @@ Subject: [PATCH] Use specific commit for messages
  51 files changed, 51 insertions(+), 51 deletions(-)
 
 diff --git a/apps/web/src/locales/af/messages.json b/apps/web/src/locales/af/messages.json
-index d6fe5401d4..602b20018b 100644
+index 2e8c1fdea1..a661cfafe6 100644
 --- a/apps/web/src/locales/af/messages.json
 +++ b/apps/web/src/locales/af/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisasie-identifiseerder"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Teken vinnig aan d.m.v. u organisasie se enkelaantekenportaal (SSO). Voer u organisasie se identifiseerder in om te begin."
 +    "message": "Teken vinnig aan d.m.v. u organisasie se enkelaantekenportaal (SSO)."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Onderneming-enkelaanteken"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ar/messages.json b/apps/web/src/locales/ar/messages.json
-index 407ed12cca..f9f38030ad 100644
+index 91a223bc83..97b19abe06 100644
 --- a/apps/web/src/locales/ar/messages.json
 +++ b/apps/web/src/locales/ar/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "معرف المنظمة"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "قم بتسجيل الدخول بسرعة باستخدام بوابة تسجيل الدخول الأحادي لمؤسستك. الرجاء إدخال معرف الـSSO الخاص بمؤسستك للبدء."
 +    "message": "قم بتسجيل الدخول بسرعة باستخدام بوابة تسجيل الدخول الأحادي لمؤسستك."
    },
-   "enterpriseSingleSignOn": {
-     "message": "تسجيل الدخول الأُحادي للمؤسسات – SSO"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/az/messages.json b/apps/web/src/locales/az/messages.json
-index 5f9a8fda09..eec3588fbe 100644
+index 1b3685420c..67ee1d6aa9 100644
 --- a/apps/web/src/locales/az/messages.json
 +++ b/apps/web/src/locales/az/messages.json
-@@ -4704,7 +4704,7 @@
-     "message": "Təşkilat identifikatoru"
+@@ -4728,7 +4728,7 @@
+     "message": "Başlamaq üçün təşkilatınızın SSO identifikatorunu daxil edin"
    },
-   "ssoLogInWithOrgIdentifier": {
--    "message": "Təşkilatınızın tək daxil olma portalını istifadə edərək giriş edin. Başlatmaq üçün lütfən təşkilatınızın identifikatorunu daxil edin."
-+    "message": "Təşkilatınızın tək daxil olma portalını istifadə edərək giriş edin."
+   "singleSignOnEnterOrgIdentifierText": {
+-    "message": "SSO provayderinizlə giriş etmək üçün başlamaq üzrə təşkilatınızın SSO identifikatorunu daxil edin. Yeni bir cihazdan giriş etdiyiniz zaman bu SSO identifikatorunu daxil etməyiniz lazım gələ bilər."
++    "message": "SSO provayderinizlə giriş etmək üçün başlamaq üzrə təşkilatınızın SSO identifikatorunu daxil edin."
    },
    "enterpriseSingleSignOn": {
-     "message": "Müəssisə üçün tək daxil olma"
+     "message": "Müəssisə üçün vahid daxil olma"
 diff --git a/apps/web/src/locales/be/messages.json b/apps/web/src/locales/be/messages.json
-index ff1d68e970..127250d43f 100644
+index 335dcbbe65..cab73f2bda 100644
 --- a/apps/web/src/locales/be/messages.json
 +++ b/apps/web/src/locales/be/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Ідэнтыфікатар арганізацыі"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Уваходзьце з выкарыстаннем партала адзінага ўваходу вашай арганізацыі. Калі ласка, увядзіце ідэнтыфікатар вашай арганізацыі для пачатку працы."
 +    "message": "Уваходзьце з выкарыстаннем партала адзінага ўваходу вашай арганізацыі."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Адзіны ўваход прадпрыемства (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/bg/messages.json b/apps/web/src/locales/bg/messages.json
-index 6df82896f9..783ba88c0a 100644
+index 88634c13b9..142abd7c79 100644
 --- a/apps/web/src/locales/bg/messages.json
 +++ b/apps/web/src/locales/bg/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Идентификатор на организация"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Вписване чрез портала на организацията ви за еднократна идентификация. За да продължите, въведете идентификатора на организацията."
 +    "message": "Вписване чрез портала на организацията ви за еднократна идентификация."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Еднократна идентификация (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "За да започнете, въведете идентификатора за еднократно удостоверяване на организацията си"
 diff --git a/apps/web/src/locales/bn/messages.json b/apps/web/src/locales/bn/messages.json
-index 1e2fb12f3b..6c17f15140 100644
+index 3860a66b92..a366feb4fe 100644
 --- a/apps/web/src/locales/bn/messages.json
 +++ b/apps/web/src/locales/bn/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/bs/messages.json b/apps/web/src/locales/bs/messages.json
-index 5acd4aa9d6..08a9255b22 100644
+index 1604eb2067..eb5ba131bc 100644
 --- a/apps/web/src/locales/bs/messages.json
 +++ b/apps/web/src/locales/bs/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ca/messages.json b/apps/web/src/locales/ca/messages.json
-index a1b591f8df..94cfc94dfb 100644
+index 38684e8aef..f08de44562 100644
 --- a/apps/web/src/locales/ca/messages.json
 +++ b/apps/web/src/locales/ca/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identificador d’organització"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Inicieu la sessió ràpidament mitjançant el portal d'inici de sessió únic de la vostra organització. Introduïu l'identificador de la vostra organització per començar."
 +    "message": "Inicieu la sessió ràpidament mitjançant el portal d'inici de sessió únic de la vostra organització."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Inici de sessió únic d'empresa"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/cs/messages.json b/apps/web/src/locales/cs/messages.json
-index 147af1e94a..5a6bad3591 100644
+index 0fdac8e60f..4d7f3f1218 100644
 --- a/apps/web/src/locales/cs/messages.json
 +++ b/apps/web/src/locales/cs/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identifikátor organizace"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Přihlaste se pomocí přihlašovacího portálu Vaší organizace. Chcete-li začít, zadejte identifikátor Vaší organizace."
 +    "message": "Přihlaste se pomocí přihlašovacího portálu vaší organizace."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Jednotné podnikové přihlášení"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Chcete-li začít, zadejte SSO identifikátor Vaší organizace"
 diff --git a/apps/web/src/locales/da/messages.json b/apps/web/src/locales/da/messages.json
-index eeb2d86c9f..bd87316d79 100644
+index 86bb114521..183dedce0e 100644
 --- a/apps/web/src/locales/da/messages.json
 +++ b/apps/web/src/locales/da/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisationsidentifikator"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log ind via din organisations single sign-on portal. Angiv organisationens SSO-identifikator for at begynde."
 +    "message": "Log ind via din organisations single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Virksomheds Single Sign-On"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Angiv organisationens SSO-identifikator for at begynde"
 diff --git a/apps/web/src/locales/de/messages.json b/apps/web/src/locales/de/messages.json
-index 59fd62a30e..8bad1ce105 100644
+index 57e5891a70..a552e37609 100644
 --- a/apps/web/src/locales/de/messages.json
 +++ b/apps/web/src/locales/de/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisationskennung"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Melde dich über das Single Sign-on-Portal deiner Organisation an. Bitte gib die SSO-Kennung deiner Organisation ein, um zu beginnen."
 +    "message": "Melde dich über das Single Sign-on-Portal deiner Organisation an."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise Single Sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Gib die SSO-Kennung deiner Organisation ein, um zu starten"
 diff --git a/apps/web/src/locales/en/messages.json b/apps/web/src/locales/en/messages.json
-index eb98a1d757..c68cc4acf9 100644
+index acbb348048..b8c0fb081a 100644
 --- a/apps/web/src/locales/en/messages.json
 +++ b/apps/web/src/locales/en/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/en_IN/messages.json b/apps/web/src/locales/en_IN/messages.json
-index 1ca16a1704..f4660228f2 100644
+index dd507896e5..b15a9c00ef 100644
 --- a/apps/web/src/locales/en_IN/messages.json
 +++ b/apps/web/src/locales/en_IN/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisation identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organisation's single sign-on portal. Please enter your organisation's identifier to begin."
 +    "message": "Log in using your organisation's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organisation's SSO identifier to begin"
 diff --git a/apps/web/src/locales/eo/messages.json b/apps/web/src/locales/eo/messages.json
-index 7c4061ad35..f7a945ffe0 100644
+index 2c1aa36046..450a7b1866 100644
 --- a/apps/web/src/locales/eo/messages.json
 +++ b/apps/web/src/locales/eo/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identigilo de la organizo"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Ensalutu per la unika ensaluta portalo de via organizo. Bonvolu enigi la identigilon de via organizo por komenci."
 +    "message": "Ensalutu per la unika ensaluta portalo de via organizo."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Entreprena Ununura Ensaluto"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/es/messages.json b/apps/web/src/locales/es/messages.json
-index ef1152c04b..71db027e5a 100644
+index f2548036c2..4132896147 100644
 --- a/apps/web/src/locales/es/messages.json
 +++ b/apps/web/src/locales/es/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identificador de la organización"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Inicie sesión utilizando el portal de inicio de sesión único de su organización. Introduzca el identificador de su organización para comenzar."
 +    "message": "Inicie sesión utilizando el portal de inicio de sesión único de su organización."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Inicio de sesión único empresarial"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/et/messages.json b/apps/web/src/locales/et/messages.json
-index b82a600afa..ed20c672df 100644
+index 21096b3f71..95e172508d 100644
 --- a/apps/web/src/locales/et/messages.json
 +++ b/apps/web/src/locales/et/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisatsiooni identifikaator"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Sisselogimine läbi organisatsiooni ühekordse sisselogimise portaali. Jätkamiseks sisesta ettevõtte identifikaator."
 +    "message": "Sisselogimine läbi organisatsiooni ühekordse sisselogimise portaali."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Ettevõtte Single Sign-On"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/eu/messages.json b/apps/web/src/locales/eu/messages.json
-index bd8e1febd5..d6da40c117 100644
+index 19de255284..f52dbe613b 100644
 --- a/apps/web/src/locales/eu/messages.json
 +++ b/apps/web/src/locales/eu/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Erakundearen identifikatzailea"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Hasi saioa zure erakundeko atari bakarra erabiliz. Sartu zure erakundearen identifikatzailea hasteko."
 +    "message": "Hasi saioa zure erakundeko atari bakarra erabiliz."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enpresentzako saio hasiera bakarra"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fa/messages.json b/apps/web/src/locales/fa/messages.json
-index beb39cd47a..6c4f2d9f12 100644
+index bb422bf70a..40a18cb645 100644
 --- a/apps/web/src/locales/fa/messages.json
 +++ b/apps/web/src/locales/fa/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "شناسه سازمان"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "با استفاده از پورتال ورود واحد سازمان خود وارد شوید. لطفاً برای شروع، شناسه SSO سازمان خود را وارد کنید."
 +    "message": "با استفاده از پورتال ورود واحد سازمان خود وارد شوید."
    },
-   "enterpriseSingleSignOn": {
-     "message": "ورود به سیستم پروژه"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fi/messages.json b/apps/web/src/locales/fi/messages.json
-index 4a27d1b5f5..46de314d2c 100644
+index 90a9078ceb..55af06ba25 100644
 --- a/apps/web/src/locales/fi/messages.json
 +++ b/apps/web/src/locales/fi/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisaation tunniste"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Kirjaudu organisaatiosi kertakirjautumisportaalista. Aloita syöttämällä organisaatiosi kertakirjautumistunniste."
 +    "message": "Kirjaudu organisaatiosi kertakirjautumisportaalista."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Yrityksen kertakirjautuminen"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fil/messages.json b/apps/web/src/locales/fil/messages.json
-index 536dbeaebc..5ca595ba06 100644
+index 6257f2b5ea..f339234cf9 100644
 --- a/apps/web/src/locales/fil/messages.json
 +++ b/apps/web/src/locales/fil/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Tagatukoy ng organisasyon"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Mag log in gamit ang single sign on portal ng iyong samahan. Ipasok lamang ang SSO identifier ng iyong organisasyon upang magsimula."
 +    "message": "Mag log in gamit ang single sign on portal ng iyong samahan."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise Single Sign-On sa Filipino ay Isang Sign-On na Enterprise"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fr/messages.json b/apps/web/src/locales/fr/messages.json
-index 3bbed3aba4..6be42667c7 100644
+index c9f87b1926..492716ad26 100644
 --- a/apps/web/src/locales/fr/messages.json
 +++ b/apps/web/src/locales/fr/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identifiant de l'organisation"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Connectez-vous en utilisant le portail de connexion unique de votre organisation. Veuillez entrer l'identifiant de votre organisation pour commencer."
 +    "message": "Connectez-vous en utilisant le portail de connexion unique de votre organisation."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Portail de connexion unique d'entreprise (Single Sign-On)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Entrez l'identifiant SSO de votre organisation pour commencer"
 diff --git a/apps/web/src/locales/he/messages.json b/apps/web/src/locales/he/messages.json
-index 9da5dfe492..f1191589cb 100644
+index 32e51d6a03..995f767b44 100644
 --- a/apps/web/src/locales/he/messages.json
 +++ b/apps/web/src/locales/he/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "מזהה ארגוני"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "הכנס באמצעות פורטל ההזדהות האחודה (SSO) הארגוני שלך. אנא הזן את המזהה הארגוני שלך כדי להתחיל."
 +    "message": "הכנס באמצעות פורטל ההזדהות האחודה (SSO) הארגוני שלך."
    },
-   "enterpriseSingleSignOn": {
-     "message": "כניסה ארגונית אחודה"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/hi/messages.json b/apps/web/src/locales/hi/messages.json
-index 7c8ecd4473..3ec79e823f 100644
+index 3f2bd5897e..52ec86de13 100644
 --- a/apps/web/src/locales/hi/messages.json
 +++ b/apps/web/src/locales/hi/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/hr/messages.json b/apps/web/src/locales/hr/messages.json
-index 5a5ca9b979..7c943f5e35 100644
+index 9a12714078..6d843bc619 100644
 --- a/apps/web/src/locales/hr/messages.json
 +++ b/apps/web/src/locales/hr/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identifikator organizacije"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Prijavi se koristeći SSO portal tvoje organizacije. Za nastavak unesi identifikator organizacije."
 +    "message": "Prijavi se koristeći SSO portal tvoje organizacije."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Jedinstvena prijava na razini tvrtke (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Za početak unesi SSO identifikator"
 diff --git a/apps/web/src/locales/id/messages.json b/apps/web/src/locales/id/messages.json
-index 53b7fb2714..8deef10f03 100644
+index 877a6b2126..63bff39822 100644
 --- a/apps/web/src/locales/id/messages.json
 +++ b/apps/web/src/locales/id/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Pengenal Organisasi"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Masuk menggunakan portal sistem masuk tunggal organisasi Anda. Harap masukkan pengenal organisasi Anda untuk memulai."
 +    "message": "Masuk menggunakan portal sistem masuk tunggal organisasi Anda."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Sistem Masuk Tunggal Perusahaan"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/it/messages.json b/apps/web/src/locales/it/messages.json
-index e37992b812..5183d4f082 100644
+index 36bcc07a02..d3789fbf03 100644
 --- a/apps/web/src/locales/it/messages.json
 +++ b/apps/web/src/locales/it/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identificativo dell'organizzazione"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Accedi usando il portale di accesso (SSO) della tua organizzazione. Inserisci l'identificativo della tua organizzazione per iniziare."
 +    "message": "Accedi usando il portale di accesso (SSO) della tua organizzazione."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Single Sign-On aziendale"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ja/messages.json b/apps/web/src/locales/ja/messages.json
-index c212cb6f93..c9249412c9 100644
+index 343818e3ad..55f92f5b2b 100644
 --- a/apps/web/src/locales/ja/messages.json
 +++ b/apps/web/src/locales/ja/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "組織識別子"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "組織のシングルサインオンポータルを使用してログインします。開始するには組織の識別子を入力してください。"
 +    "message": "組織のシングルサインオンポータルを使用してログインします。"
    },
-   "enterpriseSingleSignOn": {
-     "message": "組織のシングルサインオン"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ka/messages.json b/apps/web/src/locales/ka/messages.json
-index a3a7d9157e..9734a290e4 100644
+index 2a61cd8976..276221d7ef 100644
 --- a/apps/web/src/locales/ka/messages.json
 +++ b/apps/web/src/locales/ka/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/lv/messages.json b/apps/web/src/locales/lv/messages.json
-index 81d0dde4e6..71a0bf7bf2 100644
+index 8f8ae16320..82deaa04eb 100644
 --- a/apps/web/src/locales/lv/messages.json
 +++ b/apps/web/src/locales/lv/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Apvienības identifikators"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Pieteikties no apvienības vienotās pieteikšanās portāla. Lūgums ievadīt apvienības identifikatoru, lai sāktu."
 +    "message": "Pieteikties no apvienības vienotās pieteikšanās portāla."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Uzņēmuma vienotā pieteikšanās"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Jāievada savas apvienības SSO identifikators, lai sāktu"
 diff --git a/apps/web/src/locales/ml/messages.json b/apps/web/src/locales/ml/messages.json
-index 559c1e4768..112823dca6 100644
+index bca6a172b6..17ec1e8085 100644
 --- a/apps/web/src/locales/ml/messages.json
 +++ b/apps/web/src/locales/ml/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "സംഘടനയുടെ ഐഡന്റിഫയർ"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "നിങ്ങളുടെ സംഘടനയുടെ സിംഗിൾ സൈൻ-ഓൺ പോർട്ടൽ ഉപയോഗിച്ച് വേഗത്തിൽ ലോഗിൻ ചെയ്യുക. ആരംഭിക്കുന്നതിന് ദയവായി നിങ്ങളുടെ സംഘടനയുടെ ഐഡന്റിഫയർ നൽകുക."
 +    "message": "നിങ്ങളുടെ സംഘടനയുടെ സിംഗിൾ സൈൻ-ഓൺ പോർട്ടൽ ഉപയോഗിച്ച് വേഗത്തിൽ ലോഗിൻ ചെയ്യുക."
    },
-   "enterpriseSingleSignOn": {
-     "message": "എന്റർപ്രൈസ് SSO"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/nb/messages.json b/apps/web/src/locales/nb/messages.json
-index 5145af4cc1..ae3794fc5e 100644
+index caf2242825..eb430116e0 100644
 --- a/apps/web/src/locales/nb/messages.json
 +++ b/apps/web/src/locales/nb/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisasjons identifikator"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Logg inn ved hjelp av din organisasjons eneste signalportal. Angi din organisasjons identifikator for å begynne."
 +    "message": "Logg inn ved hjelp av din organisasjons eneste signalportal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Bedriftsinnlogging (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/nl/messages.json b/apps/web/src/locales/nl/messages.json
-index 0f1025abd7..5149dee349 100644
+index 4e6e29704b..5539768662 100644
 --- a/apps/web/src/locales/nl/messages.json
 +++ b/apps/web/src/locales/nl/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisatie-identificatie"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Inloggen met het single sign-on portaal van je organisatie. Voer de identificatie van je organisatie in om te beginnen."
 +    "message": "Inloggen met het single sign-on portaal van je organisatie."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise Single Sign-On"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Voer het SSO-nummer van je organisatie in om te beginnen"
 diff --git a/apps/web/src/locales/nn/messages.json b/apps/web/src/locales/nn/messages.json
-index eb9058d8d3..5d4b69d306 100644
+index 7951e875fe..0f8c8f1ba0 100644
 --- a/apps/web/src/locales/nn/messages.json
 +++ b/apps/web/src/locales/nn/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/pl/messages.json b/apps/web/src/locales/pl/messages.json
-index e02e23842c..a0cd370093 100644
+index 67d63ce9b3..76d06df706 100644
 --- a/apps/web/src/locales/pl/messages.json
 +++ b/apps/web/src/locales/pl/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identyfikator organizacji"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Zaloguj się za pomocą logowania jednokrotnego SSO swojej organizacji. Aby rozpocząć, wpisz swój identyfikator organizacji."
 +    "message": "Zaloguj się za pomocą logowania jednokrotnego SSO swojej organizacji."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Logowanie jednokrotne"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/pt_BR/messages.json b/apps/web/src/locales/pt_BR/messages.json
-index 5df8556ae6..61f50dea34 100644
+index 5461370c66..e84195a2fc 100644
 --- a/apps/web/src/locales/pt_BR/messages.json
 +++ b/apps/web/src/locales/pt_BR/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identificador da Organização"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Faça o login usando o portal de login único da sua organização. Por favor, insira o identificador da sua organização para começar."
 +    "message": "Faça o login usando o portal de login único da sua organização."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Iniciar Sessão Empresarial Única"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ro/messages.json b/apps/web/src/locales/ro/messages.json
-index c5c4d7b93a..18c603be10 100644
+index 5fdb6ab5e6..251ae1906b 100644
 --- a/apps/web/src/locales/ro/messages.json
 +++ b/apps/web/src/locales/ro/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identificator organizație"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Conectați-vă utilizând portalul de conectare unică al organizației. Pentru a începe, Introduceți vă rog identificatorul organizației dvs."
 +    "message": "Conectați-vă utilizând portalul de conectare unică al organizației."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Autentificare unică întreprindere"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ru/messages.json b/apps/web/src/locales/ru/messages.json
-index 6d86d11431..ee813ea6dd 100644
+index fd309722f4..be6892ef0d 100644
 --- a/apps/web/src/locales/ru/messages.json
 +++ b/apps/web/src/locales/ru/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Идентификатор организации"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Авторизуйтесь при помощи единого корпоративного портала. Чтобы начать, введите идентификатор вашей организации."
 +    "message": "Авторизуйтесь при помощи единого корпоративного портала."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Единая корпоративная авторизация"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Чтобы начать, введите идентификатор SSO вашей организации"
 diff --git a/apps/web/src/locales/si/messages.json b/apps/web/src/locales/si/messages.json
-index fd6077f5f1..1a6ac53fa8 100644
+index 3dfac52754..3f0d9c4d7d 100644
 --- a/apps/web/src/locales/si/messages.json
 +++ b/apps/web/src/locales/si/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sk/messages.json b/apps/web/src/locales/sk/messages.json
-index 54b03ab3e4..48caa9047d 100644
+index 8533d50b30..9ba187504c 100644
 --- a/apps/web/src/locales/sk/messages.json
 +++ b/apps/web/src/locales/sk/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Identifikátor organizácie"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Prihláste sa prostredníctvom jednotného prihlásenie (SSO) vašej organizácie. Najskôr zadajte identifikátor vašej organizácie."
 +    "message": "Prihláste sa prostredníctvom jednotného prihlásenie (SSO) vašej organizácie."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Jednotné prihlásenie pre podniky (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Ak chcete začať, zadajte identifikátor SSO vašej organizácie"
 diff --git a/apps/web/src/locales/sl/messages.json b/apps/web/src/locales/sl/messages.json
-index 07f6dc1b91..5ac3f5fedc 100644
+index 55aceaecf2..e5a98b2037 100644
 --- a/apps/web/src/locales/sl/messages.json
 +++ b/apps/web/src/locales/sl/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sr/messages.json b/apps/web/src/locales/sr/messages.json
-index 6d2b8a18cf..9216c22d2a 100644
+index 17e82485f8..ecf5e0dd63 100644
 --- a/apps/web/src/locales/sr/messages.json
 +++ b/apps/web/src/locales/sr/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Идентификатор организације"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Пријавите се помоћу портала за јединствену пријаву ваше организације. Унесите идентификатор организације да бисте започели."
 +    "message": "Пријавите се помоћу портала за јединствену пријаву ваше организације."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise Једна Пријава"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sr_CS/messages.json b/apps/web/src/locales/sr_CS/messages.json
-index 4a9125537c..eb545c2ae9 100644
+index 6dd5fed673..e2ec0b9800 100644
 --- a/apps/web/src/locales/sr_CS/messages.json
 +++ b/apps/web/src/locales/sr_CS/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sr_CY/messages.json b/apps/web/src/locales/sr_CY/messages.json
 index c2901f39c1..db724cd334 100644
 --- a/apps/web/src/locales/sr_CY/messages.json
@@ -614,109 +614,109 @@ index c2901f39c1..db724cd334 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Једна Пријава"
 diff --git a/apps/web/src/locales/sv/messages.json b/apps/web/src/locales/sv/messages.json
-index bd67758aaa..a23f2a5ef7 100644
+index b4d2fb7aa8..e18c05b07c 100644
 --- a/apps/web/src/locales/sv/messages.json
 +++ b/apps/web/src/locales/sv/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organisationens Identifierare"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Logga in genom organisationens inloggningsportal. Ange organisationens identifierare för att börja."
 +    "message": "Logga in genom organisationens inloggningsportal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/te/messages.json b/apps/web/src/locales/te/messages.json
-index 1ad5f52a94..0975a2cef2 100644
+index c5a77826c9..66f65712e6 100644
 --- a/apps/web/src/locales/te/messages.json
 +++ b/apps/web/src/locales/te/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/th/messages.json b/apps/web/src/locales/th/messages.json
-index 6744d955ca..abc1a5265e 100644
+index 5d2da786d8..e415018664 100644
 --- a/apps/web/src/locales/th/messages.json
 +++ b/apps/web/src/locales/th/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/tr/messages.json b/apps/web/src/locales/tr/messages.json
-index e83bd6667d..0da387ef66 100644
+index fb821407a1..ce3f052641 100644
 --- a/apps/web/src/locales/tr/messages.json
 +++ b/apps/web/src/locales/tr/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Kuruluş tanımlayıcı"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Kuruluşunuzun çoklu oturum açma portalını kullanarak giriş yapabilirsiniz. Başlamak için lütfen kuruluşunuzun SSO tanımlayıcısını girin."
 +    "message": "Kuruluşunuzun çoklu oturum açma portalını kullanarak giriş yapabilirsiniz."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Kurumsal çoklu oturum açma"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/uk/messages.json b/apps/web/src/locales/uk/messages.json
-index bde7ab4dbe..59edf8016e 100644
+index 89d538e1a2..9a854e86bc 100644
 --- a/apps/web/src/locales/uk/messages.json
 +++ b/apps/web/src/locales/uk/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Ідентифікатор організації"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Виконуйте вхід з використанням порталу єдиного входу вашої організації. Щоб почати, введіть SSO-ідентифікатор вашої організації."
 +    "message": "Виконуйте вхід з використанням порталу єдиного входу вашої організації."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Єдиний корпоративний вхід (SSO)"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Введіть ідентифікатор SSO вашої організації, щоб почати"
 diff --git a/apps/web/src/locales/vi/messages.json b/apps/web/src/locales/vi/messages.json
-index d6701a713e..e5ed59f74f 100644
+index c8300de6fb..7195c65482 100644
 --- a/apps/web/src/locales/vi/messages.json
 +++ b/apps/web/src/locales/vi/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "Log in using your organization's single sign-on portal. Please enter your organization's SSO identifier to begin."
 +    "message": "Log in using your organization's single sign-on portal."
    },
-   "enterpriseSingleSignOn": {
-     "message": "Enterprise single sign-on"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/zh_CN/messages.json b/apps/web/src/locales/zh_CN/messages.json
-index c3b1c6a5ef..7a72cfb900 100644
+index 0dad065f57..b390560e9b 100644
 --- a/apps/web/src/locales/zh_CN/messages.json
 +++ b/apps/web/src/locales/zh_CN/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "组织标识符"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "要使用您组织的单点登录门户登录。请首先输入您组织的标识符。"
 +    "message": "要使用您组织的单点登录门户登录。"
    },
-   "enterpriseSingleSignOn": {
-     "message": "企业单点登录"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "输入您组织的 SSO 标识符以开始"
 diff --git a/apps/web/src/locales/zh_TW/messages.json b/apps/web/src/locales/zh_TW/messages.json
-index 2d39d982fc..d423d2f41b 100644
+index bf15ea2a20..b8de41fbe4 100644
 --- a/apps/web/src/locales/zh_TW/messages.json
 +++ b/apps/web/src/locales/zh_TW/messages.json
-@@ -4704,7 +4704,7 @@
+@@ -4722,7 +4722,7 @@
      "message": "組織識別碼"
    },
    "ssoLogInWithOrgIdentifier": {
 -    "message": "若要使用組織的單一登入入口登入。請先輸入您的組織識別碼。"
 +    "message": "若要使用組織的單一登入入口登入。"
    },
-   "enterpriseSingleSignOn": {
-     "message": "企業單一登入"
+   "singleSignOnEnterOrgIdentifier": {
+     "message": "Enter your organization's SSO identifier to begin"
 -- 
 2.39.5
 
