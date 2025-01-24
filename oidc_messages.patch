@@ -55,10 +55,10 @@ Subject: [PATCH] Use specific commit for messages
  51 files changed, 51 insertions(+), 51 deletions(-)
 
 diff --git a/apps/web/src/locales/af/messages.json b/apps/web/src/locales/af/messages.json
-index 2e8c1fdea1..a661cfafe6 100644
+index 1dd2d62f2a..8c8d003133 100644
 --- a/apps/web/src/locales/af/messages.json
 +++ b/apps/web/src/locales/af/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisasie-identifiseerder"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -68,10 +68,10 @@ index 2e8c1fdea1..a661cfafe6 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ar/messages.json b/apps/web/src/locales/ar/messages.json
-index 91a223bc83..97b19abe06 100644
+index 2c2549e2f1..d4382fbbd8 100644
 --- a/apps/web/src/locales/ar/messages.json
 +++ b/apps/web/src/locales/ar/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "معرف المنظمة"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -81,10 +81,10 @@ index 91a223bc83..97b19abe06 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/az/messages.json b/apps/web/src/locales/az/messages.json
-index 1b3685420c..67ee1d6aa9 100644
+index b140ae320b..d06e4bb27f 100644
 --- a/apps/web/src/locales/az/messages.json
 +++ b/apps/web/src/locales/az/messages.json
-@@ -4728,7 +4728,7 @@
+@@ -4752,7 +4752,7 @@
      "message": "Başlamaq üçün təşkilatınızın SSO identifikatorunu daxil edin"
    },
    "singleSignOnEnterOrgIdentifierText": {
@@ -94,10 +94,10 @@ index 1b3685420c..67ee1d6aa9 100644
    "enterpriseSingleSignOn": {
      "message": "Müəssisə üçün vahid daxil olma"
 diff --git a/apps/web/src/locales/be/messages.json b/apps/web/src/locales/be/messages.json
-index 335dcbbe65..cab73f2bda 100644
+index 2a037c5b11..b26f989e51 100644
 --- a/apps/web/src/locales/be/messages.json
 +++ b/apps/web/src/locales/be/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Ідэнтыфікатар арганізацыі"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -107,10 +107,10 @@ index 335dcbbe65..cab73f2bda 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/bg/messages.json b/apps/web/src/locales/bg/messages.json
-index 88634c13b9..142abd7c79 100644
+index 531cfd18a4..89a38ca7aa 100644
 --- a/apps/web/src/locales/bg/messages.json
 +++ b/apps/web/src/locales/bg/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Идентификатор на организация"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -120,10 +120,10 @@ index 88634c13b9..142abd7c79 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "За да започнете, въведете идентификатора за еднократно удостоверяване на организацията си"
 diff --git a/apps/web/src/locales/bn/messages.json b/apps/web/src/locales/bn/messages.json
-index 3860a66b92..a366feb4fe 100644
+index b215e56e19..21e356b329 100644
 --- a/apps/web/src/locales/bn/messages.json
 +++ b/apps/web/src/locales/bn/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -133,10 +133,10 @@ index 3860a66b92..a366feb4fe 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/bs/messages.json b/apps/web/src/locales/bs/messages.json
-index 1604eb2067..eb5ba131bc 100644
+index 5f2605e71b..ce8727a953 100644
 --- a/apps/web/src/locales/bs/messages.json
 +++ b/apps/web/src/locales/bs/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -146,10 +146,10 @@ index 1604eb2067..eb5ba131bc 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ca/messages.json b/apps/web/src/locales/ca/messages.json
-index 38684e8aef..f08de44562 100644
+index 30649f3296..1091b75a65 100644
 --- a/apps/web/src/locales/ca/messages.json
 +++ b/apps/web/src/locales/ca/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identificador d’organització"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -159,10 +159,10 @@ index 38684e8aef..f08de44562 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/cs/messages.json b/apps/web/src/locales/cs/messages.json
-index 0fdac8e60f..4d7f3f1218 100644
+index 7c8978fac8..9f36a75ed4 100644
 --- a/apps/web/src/locales/cs/messages.json
 +++ b/apps/web/src/locales/cs/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identifikátor organizace"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -172,10 +172,10 @@ index 0fdac8e60f..4d7f3f1218 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Chcete-li začít, zadejte SSO identifikátor Vaší organizace"
 diff --git a/apps/web/src/locales/da/messages.json b/apps/web/src/locales/da/messages.json
-index 86bb114521..183dedce0e 100644
+index 9731c344e6..95e647c96e 100644
 --- a/apps/web/src/locales/da/messages.json
 +++ b/apps/web/src/locales/da/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisationsidentifikator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -185,10 +185,10 @@ index 86bb114521..183dedce0e 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Angiv organisationens SSO-identifikator for at begynde"
 diff --git a/apps/web/src/locales/de/messages.json b/apps/web/src/locales/de/messages.json
-index 57e5891a70..a552e37609 100644
+index 540db2dec0..719f9cb81e 100644
 --- a/apps/web/src/locales/de/messages.json
 +++ b/apps/web/src/locales/de/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisationskennung"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -198,10 +198,10 @@ index 57e5891a70..a552e37609 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Gib die SSO-Kennung deiner Organisation ein, um zu starten"
 diff --git a/apps/web/src/locales/en/messages.json b/apps/web/src/locales/en/messages.json
-index acbb348048..b8c0fb081a 100644
+index 2779c0470e..3fd3ae5a0e 100644
 --- a/apps/web/src/locales/en/messages.json
 +++ b/apps/web/src/locales/en/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4831,7 +4831,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -211,10 +211,10 @@ index acbb348048..b8c0fb081a 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/en_IN/messages.json b/apps/web/src/locales/en_IN/messages.json
-index dd507896e5..b15a9c00ef 100644
+index 2564812802..403c7d3f13 100644
 --- a/apps/web/src/locales/en_IN/messages.json
 +++ b/apps/web/src/locales/en_IN/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisation identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -224,10 +224,10 @@ index dd507896e5..b15a9c00ef 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organisation's SSO identifier to begin"
 diff --git a/apps/web/src/locales/eo/messages.json b/apps/web/src/locales/eo/messages.json
-index 2c1aa36046..450a7b1866 100644
+index 21eba5a4a9..6d82807412 100644
 --- a/apps/web/src/locales/eo/messages.json
 +++ b/apps/web/src/locales/eo/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identigilo de la organizo"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -237,10 +237,10 @@ index 2c1aa36046..450a7b1866 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/es/messages.json b/apps/web/src/locales/es/messages.json
-index f2548036c2..4132896147 100644
+index 1393fe59b2..b763f7e819 100644
 --- a/apps/web/src/locales/es/messages.json
 +++ b/apps/web/src/locales/es/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identificador de la organización"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -250,10 +250,10 @@ index f2548036c2..4132896147 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/et/messages.json b/apps/web/src/locales/et/messages.json
-index 21096b3f71..95e172508d 100644
+index 9122e4b877..b04fa39c38 100644
 --- a/apps/web/src/locales/et/messages.json
 +++ b/apps/web/src/locales/et/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisatsiooni identifikaator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -263,10 +263,10 @@ index 21096b3f71..95e172508d 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/eu/messages.json b/apps/web/src/locales/eu/messages.json
-index 19de255284..f52dbe613b 100644
+index 576d8207aa..8a081c4f39 100644
 --- a/apps/web/src/locales/eu/messages.json
 +++ b/apps/web/src/locales/eu/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Erakundearen identifikatzailea"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -276,10 +276,10 @@ index 19de255284..f52dbe613b 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fa/messages.json b/apps/web/src/locales/fa/messages.json
-index bb422bf70a..40a18cb645 100644
+index 589a019973..f9d3bd83c0 100644
 --- a/apps/web/src/locales/fa/messages.json
 +++ b/apps/web/src/locales/fa/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "شناسه سازمان"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -289,10 +289,10 @@ index bb422bf70a..40a18cb645 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fi/messages.json b/apps/web/src/locales/fi/messages.json
-index 90a9078ceb..55af06ba25 100644
+index b6825bed16..6830bcc06b 100644
 --- a/apps/web/src/locales/fi/messages.json
 +++ b/apps/web/src/locales/fi/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisaation tunniste"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -302,10 +302,10 @@ index 90a9078ceb..55af06ba25 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fil/messages.json b/apps/web/src/locales/fil/messages.json
-index 6257f2b5ea..f339234cf9 100644
+index 9dcacdb44f..044261a3bd 100644
 --- a/apps/web/src/locales/fil/messages.json
 +++ b/apps/web/src/locales/fil/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Tagatukoy ng organisasyon"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -315,10 +315,10 @@ index 6257f2b5ea..f339234cf9 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/fr/messages.json b/apps/web/src/locales/fr/messages.json
-index c9f87b1926..492716ad26 100644
+index 933bfd8759..b36072a7ca 100644
 --- a/apps/web/src/locales/fr/messages.json
 +++ b/apps/web/src/locales/fr/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identifiant de l'organisation"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -328,10 +328,10 @@ index c9f87b1926..492716ad26 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Entrez l'identifiant SSO de votre organisation pour commencer"
 diff --git a/apps/web/src/locales/he/messages.json b/apps/web/src/locales/he/messages.json
-index 32e51d6a03..995f767b44 100644
+index 6db8255c46..849b7d161f 100644
 --- a/apps/web/src/locales/he/messages.json
 +++ b/apps/web/src/locales/he/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "מזהה ארגוני"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -341,10 +341,10 @@ index 32e51d6a03..995f767b44 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/hi/messages.json b/apps/web/src/locales/hi/messages.json
-index 3f2bd5897e..52ec86de13 100644
+index 25f7bc6e6f..bfa030d01b 100644
 --- a/apps/web/src/locales/hi/messages.json
 +++ b/apps/web/src/locales/hi/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -354,10 +354,10 @@ index 3f2bd5897e..52ec86de13 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/hr/messages.json b/apps/web/src/locales/hr/messages.json
-index 9a12714078..6d843bc619 100644
+index 610b63d68c..dc10f7dc7c 100644
 --- a/apps/web/src/locales/hr/messages.json
 +++ b/apps/web/src/locales/hr/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identifikator organizacije"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -367,10 +367,10 @@ index 9a12714078..6d843bc619 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Za početak unesi SSO identifikator"
 diff --git a/apps/web/src/locales/id/messages.json b/apps/web/src/locales/id/messages.json
-index 877a6b2126..63bff39822 100644
+index 3b861fb16d..de62871d01 100644
 --- a/apps/web/src/locales/id/messages.json
 +++ b/apps/web/src/locales/id/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Pengenal Organisasi"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -380,10 +380,10 @@ index 877a6b2126..63bff39822 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/it/messages.json b/apps/web/src/locales/it/messages.json
-index 36bcc07a02..d3789fbf03 100644
+index 8ce01a4737..90b703cce1 100644
 --- a/apps/web/src/locales/it/messages.json
 +++ b/apps/web/src/locales/it/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identificativo dell'organizzazione"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -393,10 +393,10 @@ index 36bcc07a02..d3789fbf03 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ja/messages.json b/apps/web/src/locales/ja/messages.json
-index 343818e3ad..55f92f5b2b 100644
+index 44213d143a..daee664b2f 100644
 --- a/apps/web/src/locales/ja/messages.json
 +++ b/apps/web/src/locales/ja/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "組織識別子"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -404,12 +404,12 @@ index 343818e3ad..55f92f5b2b 100644
 +    "message": "組織のシングルサインオンポータルを使用してログインします。"
    },
    "singleSignOnEnterOrgIdentifier": {
-     "message": "Enter your organization's SSO identifier to begin"
+     "message": "組織の SSO ID を入力して開始します"
 diff --git a/apps/web/src/locales/ka/messages.json b/apps/web/src/locales/ka/messages.json
-index 2a61cd8976..276221d7ef 100644
+index 610bc0f6d8..87c6e299bd 100644
 --- a/apps/web/src/locales/ka/messages.json
 +++ b/apps/web/src/locales/ka/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -419,10 +419,10 @@ index 2a61cd8976..276221d7ef 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/lv/messages.json b/apps/web/src/locales/lv/messages.json
-index 8f8ae16320..82deaa04eb 100644
+index 51ca6a0f79..e10a947841 100644
 --- a/apps/web/src/locales/lv/messages.json
 +++ b/apps/web/src/locales/lv/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Apvienības identifikators"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -432,10 +432,10 @@ index 8f8ae16320..82deaa04eb 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Jāievada savas apvienības SSO identifikators, lai sāktu"
 diff --git a/apps/web/src/locales/ml/messages.json b/apps/web/src/locales/ml/messages.json
-index bca6a172b6..17ec1e8085 100644
+index a6eb0e474f..92c5049cdf 100644
 --- a/apps/web/src/locales/ml/messages.json
 +++ b/apps/web/src/locales/ml/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "സംഘടനയുടെ ഐഡന്റിഫയർ"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -445,10 +445,10 @@ index bca6a172b6..17ec1e8085 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/nb/messages.json b/apps/web/src/locales/nb/messages.json
-index caf2242825..eb430116e0 100644
+index da80546c9a..79446b0d9c 100644
 --- a/apps/web/src/locales/nb/messages.json
 +++ b/apps/web/src/locales/nb/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisasjons identifikator"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -458,10 +458,10 @@ index caf2242825..eb430116e0 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/nl/messages.json b/apps/web/src/locales/nl/messages.json
-index 4e6e29704b..5539768662 100644
+index b38e6f4c3c..1059acbae9 100644
 --- a/apps/web/src/locales/nl/messages.json
 +++ b/apps/web/src/locales/nl/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisatie-identificatie"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -471,10 +471,10 @@ index 4e6e29704b..5539768662 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Voer het SSO-nummer van je organisatie in om te beginnen"
 diff --git a/apps/web/src/locales/nn/messages.json b/apps/web/src/locales/nn/messages.json
-index 7951e875fe..0f8c8f1ba0 100644
+index cb6d070485..1669b0df14 100644
 --- a/apps/web/src/locales/nn/messages.json
 +++ b/apps/web/src/locales/nn/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -484,10 +484,10 @@ index 7951e875fe..0f8c8f1ba0 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/pl/messages.json b/apps/web/src/locales/pl/messages.json
-index 67d63ce9b3..76d06df706 100644
+index d063fa818a..88f49c5a16 100644
 --- a/apps/web/src/locales/pl/messages.json
 +++ b/apps/web/src/locales/pl/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identyfikator organizacji"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -497,10 +497,10 @@ index 67d63ce9b3..76d06df706 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/pt_BR/messages.json b/apps/web/src/locales/pt_BR/messages.json
-index 5461370c66..e84195a2fc 100644
+index b911d5b273..611bb1a768 100644
 --- a/apps/web/src/locales/pt_BR/messages.json
 +++ b/apps/web/src/locales/pt_BR/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identificador da Organização"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -510,10 +510,10 @@ index 5461370c66..e84195a2fc 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ro/messages.json b/apps/web/src/locales/ro/messages.json
-index 5fdb6ab5e6..251ae1906b 100644
+index 42d1368844..96a011066b 100644
 --- a/apps/web/src/locales/ro/messages.json
 +++ b/apps/web/src/locales/ro/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identificator organizație"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -523,10 +523,10 @@ index 5fdb6ab5e6..251ae1906b 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/ru/messages.json b/apps/web/src/locales/ru/messages.json
-index fd309722f4..be6892ef0d 100644
+index 28386190d1..c01ca3fe44 100644
 --- a/apps/web/src/locales/ru/messages.json
 +++ b/apps/web/src/locales/ru/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Идентификатор организации"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -536,10 +536,10 @@ index fd309722f4..be6892ef0d 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Чтобы начать, введите идентификатор SSO вашей организации"
 diff --git a/apps/web/src/locales/si/messages.json b/apps/web/src/locales/si/messages.json
-index 3dfac52754..3f0d9c4d7d 100644
+index df5803c0fd..951063381f 100644
 --- a/apps/web/src/locales/si/messages.json
 +++ b/apps/web/src/locales/si/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -549,10 +549,10 @@ index 3dfac52754..3f0d9c4d7d 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sk/messages.json b/apps/web/src/locales/sk/messages.json
-index 8533d50b30..9ba187504c 100644
+index d8adb9116e..13f5a41bf2 100644
 --- a/apps/web/src/locales/sk/messages.json
 +++ b/apps/web/src/locales/sk/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Identifikátor organizácie"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -562,10 +562,10 @@ index 8533d50b30..9ba187504c 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Ak chcete začať, zadajte identifikátor SSO vašej organizácie"
 diff --git a/apps/web/src/locales/sl/messages.json b/apps/web/src/locales/sl/messages.json
-index 55aceaecf2..e5a98b2037 100644
+index 75ad87494f..07aa4f22b6 100644
 --- a/apps/web/src/locales/sl/messages.json
 +++ b/apps/web/src/locales/sl/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -575,10 +575,10 @@ index 55aceaecf2..e5a98b2037 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sr/messages.json b/apps/web/src/locales/sr/messages.json
-index 17e82485f8..ecf5e0dd63 100644
+index 0f3853331c..57fb3f2a4c 100644
 --- a/apps/web/src/locales/sr/messages.json
 +++ b/apps/web/src/locales/sr/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Идентификатор организације"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -588,10 +588,10 @@ index 17e82485f8..ecf5e0dd63 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/sr_CS/messages.json b/apps/web/src/locales/sr_CS/messages.json
-index 6dd5fed673..e2ec0b9800 100644
+index 06572d08fe..54f6c630a6 100644
 --- a/apps/web/src/locales/sr_CS/messages.json
 +++ b/apps/web/src/locales/sr_CS/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -614,10 +614,10 @@ index c2901f39c1..db724cd334 100644
    "enterpriseSingleSignOn": {
      "message": "Enterprise Једна Пријава"
 diff --git a/apps/web/src/locales/sv/messages.json b/apps/web/src/locales/sv/messages.json
-index b4d2fb7aa8..e18c05b07c 100644
+index f973764363..ddad243e8f 100644
 --- a/apps/web/src/locales/sv/messages.json
 +++ b/apps/web/src/locales/sv/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organisationens Identifierare"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -627,10 +627,10 @@ index b4d2fb7aa8..e18c05b07c 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/te/messages.json b/apps/web/src/locales/te/messages.json
-index c5a77826c9..66f65712e6 100644
+index e6cce3405d..4846f3f070 100644
 --- a/apps/web/src/locales/te/messages.json
 +++ b/apps/web/src/locales/te/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -640,10 +640,10 @@ index c5a77826c9..66f65712e6 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/th/messages.json b/apps/web/src/locales/th/messages.json
-index 5d2da786d8..e415018664 100644
+index 5f5818581f..c764d3aed0 100644
 --- a/apps/web/src/locales/th/messages.json
 +++ b/apps/web/src/locales/th/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -653,10 +653,10 @@ index 5d2da786d8..e415018664 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/tr/messages.json b/apps/web/src/locales/tr/messages.json
-index fb821407a1..ce3f052641 100644
+index 97c0d00dec..25229e7a14 100644
 --- a/apps/web/src/locales/tr/messages.json
 +++ b/apps/web/src/locales/tr/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Kuruluş tanımlayıcı"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -666,10 +666,10 @@ index fb821407a1..ce3f052641 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/uk/messages.json b/apps/web/src/locales/uk/messages.json
-index 89d538e1a2..9a854e86bc 100644
+index d8cd927076..3c1f94054b 100644
 --- a/apps/web/src/locales/uk/messages.json
 +++ b/apps/web/src/locales/uk/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Ідентифікатор організації"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -679,10 +679,10 @@ index 89d538e1a2..9a854e86bc 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Введіть ідентифікатор SSO вашої організації, щоб почати"
 diff --git a/apps/web/src/locales/vi/messages.json b/apps/web/src/locales/vi/messages.json
-index c8300de6fb..7195c65482 100644
+index ff9f789f6f..557b2148a5 100644
 --- a/apps/web/src/locales/vi/messages.json
 +++ b/apps/web/src/locales/vi/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "Organization identifier"
    },
    "ssoLogInWithOrgIdentifier": {
@@ -692,23 +692,23 @@ index c8300de6fb..7195c65482 100644
    "singleSignOnEnterOrgIdentifier": {
      "message": "Enter your organization's SSO identifier to begin"
 diff --git a/apps/web/src/locales/zh_CN/messages.json b/apps/web/src/locales/zh_CN/messages.json
-index 0dad065f57..b390560e9b 100644
+index ae0b3744ec..b479cbb950 100644
 --- a/apps/web/src/locales/zh_CN/messages.json
 +++ b/apps/web/src/locales/zh_CN/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "组织标识符"
    },
    "ssoLogInWithOrgIdentifier": {
--    "message": "要使用您组织的单点登录门户登录。请首先输入您组织的标识符。"
-+    "message": "要使用您组织的单点登录门户登录。"
+-    "message": "使用您组织的单点登录门户登录。请输入您组织的 SSO 标识符以开始。"
++    "message": "使用您组织的单点登录门户登录。"
    },
    "singleSignOnEnterOrgIdentifier": {
      "message": "输入您组织的 SSO 标识符以开始"
 diff --git a/apps/web/src/locales/zh_TW/messages.json b/apps/web/src/locales/zh_TW/messages.json
-index bf15ea2a20..b8de41fbe4 100644
+index 002d0d55e0..a4b2993e18 100644
 --- a/apps/web/src/locales/zh_TW/messages.json
 +++ b/apps/web/src/locales/zh_TW/messages.json
-@@ -4722,7 +4722,7 @@
+@@ -4746,7 +4746,7 @@
      "message": "組織識別碼"
    },
    "ssoLogInWithOrgIdentifier": {

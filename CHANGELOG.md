@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.1.1-1
+
+- Upgrade to `v2025.1.1`
+
 ## v2025.1.0-1
 
 - Upgrade to `v2025.1.0`
