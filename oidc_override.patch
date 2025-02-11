@@ -1,12 +1,13 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- apps/web/src/app/auth/sso.component.html                   | 7 -------
- apps/web/src/app/auth/sso.component.ts                     | 2 +-
+ apps/web/src/app/auth/sso-v1.component.html                | 7 -------
+ apps/web/src/app/auth/sso-v1.component.ts                  | 2 +-
+ libs/angular/src/auth/components/set-password.component.ts | 1 +
  libs/angular/src/auth/guards/redirect.guard.ts             | 2 +-
  .../angular/set-password-jit/set-password-jit.component.ts | 2 ++
  .../response/organization-auto-enroll-status.response.ts   | 2 ++
- 5 files changed, 6 insertions(+), 9 deletions(-)
+ 6 files changed, 7 insertions(+), 9 deletions(-)
 
 diff --git a/apps/web/src/app/auth/sso-v1.component.html b/apps/web/src/app/auth/sso-v1.component.html
 index 59abc92e87..0a136f5a4f 100644
@@ -44,6 +45,18 @@ index 8699ecf7b2..7364af5c4f 100644
    });
  
    get identifierFormControl() {
+diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
+index 166707a19e..a988d179c1 100644
+--- a/libs/angular/src/auth/components/set-password.component.ts
++++ b/libs/angular/src/auth/components/set-password.component.ts
+@@ -127,6 +127,7 @@ export class SetPasswordComponent extends BaseChangePasswordComponent implements
+         switchMap((orgSsoId: string) => this.organizationApiService.getAutoEnrollStatus(orgSsoId)),
+         tap((orgAutoEnrollStatusResponse: OrganizationAutoEnrollStatusResponse) => {
+           this.orgId = orgAutoEnrollStatusResponse.id;
++          this.orgSsoIdentifier = orgAutoEnrollStatusResponse.identifier;
+           this.resetPasswordAutoEnroll = orgAutoEnrollStatusResponse.resetPasswordEnabled;
+         }),
+         switchMap((orgAutoEnrollStatusResponse: OrganizationAutoEnrollStatusResponse) =>
 diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
 index 7717d325a6..8161adda75 100644
 --- a/libs/angular/src/auth/guards/redirect.guard.ts
