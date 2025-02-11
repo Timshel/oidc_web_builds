@@ -1,10 +1,12 @@
 Subject: [PATCH] Use /sso as default login url
 
 ---
- apps/web/src/app/auth/sso.component.html          | 7 -------
- apps/web/src/app/auth/sso.component.ts            | 2 +-
- libs/angular/src/auth/guards/redirect.guard.ts    | 2 +-
- 2 files changed, 2 insertion(+), 9 deletions(-)
+ apps/web/src/app/auth/sso.component.html                   | 7 -------
+ apps/web/src/app/auth/sso.component.ts                     | 2 +-
+ libs/angular/src/auth/guards/redirect.guard.ts             | 2 +-
+ .../angular/set-password-jit/set-password-jit.component.ts | 2 ++
+ .../response/organization-auto-enroll-status.response.ts   | 2 ++
+ 5 files changed, 6 insertions(+), 9 deletions(-)
 
 diff --git a/apps/web/src/app/auth/sso-v1.component.html b/apps/web/src/app/auth/sso-v1.component.html
 index 59abc92e87..0a136f5a4f 100644
@@ -55,6 +57,38 @@ index 7717d325a6..8161adda75 100644
    locked: "/lock",
    notDecrypted: "/login-initiated",
  };
+diff --git a/libs/auth/src/angular/set-password-jit/set-password-jit.component.ts b/libs/auth/src/angular/set-password-jit/set-password-jit.component.ts
+index b54529f6a2..eae6146232 100644
+--- a/libs/auth/src/angular/set-password-jit/set-password-jit.component.ts
++++ b/libs/auth/src/angular/set-password-jit/set-password-jit.component.ts
+@@ -76,7 +76,9 @@ export class SetPasswordJitComponent implements OnInit {
+         const autoEnrollStatus = await this.organizationApiService.getAutoEnrollStatus(
+           this.orgSsoIdentifier,
+         );
++
+         this.orgId = autoEnrollStatus.id;
++        this.orgSsoIdentifier = autoEnrollStatus.identifier;
+         this.resetPasswordAutoEnroll = autoEnrollStatus.resetPasswordEnabled;
+         this.masterPasswordPolicyOptions =
+           await this.policyApiService.getMasterPasswordPolicyOptsForOrgUser(autoEnrollStatus.id);
+diff --git a/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts b/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts
+index f2d22fafcd..b27e3f0e25 100644
+--- a/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts
++++ b/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts
+@@ -2,11 +2,13 @@ import { BaseResponse } from "../../../models/response/base.response";
+ 
+ export class OrganizationAutoEnrollStatusResponse extends BaseResponse {
+   id: string;
++  identifier: string;
+   resetPasswordEnabled: boolean;
+ 
+   constructor(response: any) {
+     super(response);
+     this.id = this.getResponseProperty("Id");
++    this.identifier = this.getResponseProperty("Identifier");
+     this.resetPasswordEnabled = this.getResponseProperty("ResetPasswordEnabled");
+   }
+ }
 -- 
-2.39.2
+2.39.5
 

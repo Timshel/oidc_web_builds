@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.1.1-4
+
+- During enrollment override the `idendifier` with the one returned by `auto-enroll-status`.
+
 ## v2025.1.1-3
 
 - Remove the `oidc_invite` patch
