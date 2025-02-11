@@ -67,7 +67,6 @@ if [ "$NO_BUILD" = false ] ; then
 fi
 
 # Apply org invite and subpath patch
-git apply ../oidc_invite.patch
 git apply ../oidc_subpath.patch
 git apply ../oidc_sso_errors.patch
 git apply ../oidc_hide_master_password_login.patch

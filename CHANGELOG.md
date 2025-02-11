@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.1.1-3
+
+- Remove the `oidc_invite` patch
+
 ## v2025.1.1-2
 
 - On redirection keep only the base path.

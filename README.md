@@ -11,7 +11,6 @@ This is a repository to store custom builds of the [Bitwarden web vault](https:/
 This generate three different versions :
 
 - `button` closest to what is expected to be merge into [bw_web_builds](https://github.com/dani-garcia/bw_web_builds))
-	- allow organization invitation to survive sso account creation ([patch](oidc_invite.patch))
 	- fix base url resolution ([patch](oidc_subpath.patch))
 	- display SSO errors and redirect to start of the flow ([patch](oidc_sso_errors.patch))
 - `override` add additionally :
@@ -33,7 +32,6 @@ This will :
 - Clone a specific version of the [VaultWarden web vault builds](https://github.com/dani-garcia/bw_web_builds)
 - Copy ressources from the VaultWarden web vault project
 - Apply the VaultWarden web vault patch
-- Apply the invite [patch](oidc_invite.patch)
 - Apply the url resolution [patch](oidc_subpath.patch)
 - Apply the override [patch](oidc_sso_errors.patch) to improve SSO errors handling
 - Build the web vault application
