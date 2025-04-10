@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.3.1-1
+
+- Use Vaultwarden patched [v2025.3.1](https://github.com/vaultwarden/vw_web_builds/tree/v2025.3.1) web vault as base.
+
 ## v2025.1.1-5
 
 - During enrollment override the `idendifier` with the one returned by `auto-enroll-status` (old component).

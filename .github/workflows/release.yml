@@ -26,9 +26,6 @@ jobs:
 
           source build_versions.sh
 
-          echo "VAULT_VERSION=$VAULT_VERSION" >> "$GITHUB_ENV"
-          echo "VW_VERSION=$VW_VERSION" >> "$GITHUB_ENV"
-
           TAG_CURRENT=$(git describe --abbrev=0 --tags ${{ github.ref }})
           TAG_PREVIOUS=$(git describe --abbrev=0 --tags $TAG_CURRENT^)
 
@@ -54,11 +51,7 @@ jobs:
           body: |
             ${{ env.CHANGELOG_MESSAGE }}
 
-            Built using :
-             - Bitwarden WebVault version : [${{ env.VAULT_VERSION }}](https://github.com/bitwarden/clients/tree/${{ env.VAULT_VERSION }}/apps/web)
-             - VaultWarden override: [${{ env.VW_VERSION }}](https://github.com/dani-garcia/bw_web_builds/tree/${{ env.VW_VERSION }})
-
-            Full changelog: [${{ env.TAG_PREVIOUS }}...${{ env.TAG_CURRENT }}](https://github.com/timshel/oidc_web_builds/compare/${{ env.TAG_PREVIOUS }}...${{ env.TAG_CURRENT }})
+            Built using the patched WebVault version : [${{ env.TAG_CURRENT }}](https://github.com/timshel/bitwarden_clients/tree/${{ env.TAG_CURRENT }}/apps/web)
 
             :robot: Built by [release.yml](.github/workflows/release.yml) :robot:
           draft: false

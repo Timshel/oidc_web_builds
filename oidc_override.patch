@@ -1,64 +1,14 @@
-Subject: [PATCH] Use /sso as default login url
+Subject: [PATCH] SSO login as default, hide sso identifier
 
 ---
- apps/web/src/app/auth/sso-v1.component.html                | 7 -------
- apps/web/src/app/auth/sso-v1.component.ts                  | 2 +-
- libs/angular/src/auth/components/set-password.component.ts | 1 +
- libs/angular/src/auth/guards/redirect.guard.ts             | 2 +-
- .../angular/set-password-jit/set-password-jit.component.ts | 2 ++
- .../response/organization-auto-enroll-status.response.ts   | 2 ++
- 6 files changed, 7 insertions(+), 9 deletions(-)
+ libs/angular/src/auth/guards/redirect.guard.ts     |  2 +-
+ .../set-password-jit/set-password-jit.component.ts |  2 ++
+ libs/auth/src/angular/sso/sso.component.html       | 14 ++++++++------
+ .../organization-auto-enroll-status.response.ts    |  2 ++
+ 4 files changed, 13 insertions(+), 7 deletions(-)
 
-diff --git a/apps/web/src/app/auth/sso-v1.component.html b/apps/web/src/app/auth/sso-v1.component.html
-index 59abc92e87..0a136f5a4f 100644
---- a/apps/web/src/app/auth/sso-v1.component.html
-+++ b/apps/web/src/app/auth/sso-v1.component.html
-@@ -5,18 +5,11 @@
-   </div>
-   <div *ngIf="!loggingIn">
-     <p bitTypography="body1">{{ "ssoLogInWithOrgIdentifier" | i18n }}</p>
--    <bit-form-field>
--      <bit-label>{{ "ssoIdentifier" | i18n }}</bit-label>
--      <input bitInput type="text" formControlName="identifier" appAutofocus />
--    </bit-form-field>
-     <hr />
-     <div class="tw-flex tw-gap-2">
-       <button type="submit" bitButton bitFormButton buttonType="primary" [block]="true">
-         {{ "logIn" | i18n }}
-       </button>
--      <a bitButton buttonType="secondary" routerLink="/login" [block]="true">
--        {{ "cancel" | i18n }}
--      </a>
-     </div>
-   </div>
- </form>
-diff --git a/apps/web/src/app/auth/sso-v1.component.ts b/apps/web/src/app/auth/sso-v1.component.ts
-index 8699ecf7b2..7364af5c4f 100644
---- a/apps/web/src/app/auth/sso-v1.component.ts
-+++ b/apps/web/src/app/auth/sso-v1.component.ts
-@@ -40,7 +40,7 @@ import { PasswordGenerationServiceAbstraction } from "@bitwarden/generator-legac
- // eslint-disable-next-line rxjs-angular/prefer-takeuntil
- export class SsoComponentV1 extends BaseSsoComponent implements OnInit {
-   protected formGroup = new FormGroup({
--    identifier: new FormControl(null, [Validators.required]),
-+    identifier: new FormControl("Vaultwarden", [Validators.required]),
-   });
- 
-   get identifierFormControl() {
-diff --git a/libs/angular/src/auth/components/set-password.component.ts b/libs/angular/src/auth/components/set-password.component.ts
-index 166707a19e..a988d179c1 100644
---- a/libs/angular/src/auth/components/set-password.component.ts
-+++ b/libs/angular/src/auth/components/set-password.component.ts
-@@ -127,6 +127,7 @@ export class SetPasswordComponent extends BaseChangePasswordComponent implements
-         switchMap((orgSsoId: string) => this.organizationApiService.getAutoEnrollStatus(orgSsoId)),
-         tap((orgAutoEnrollStatusResponse: OrganizationAutoEnrollStatusResponse) => {
-           this.orgId = orgAutoEnrollStatusResponse.id;
-+          this.orgSsoIdentifier = orgAutoEnrollStatusResponse.identifier;
-           this.resetPasswordAutoEnroll = orgAutoEnrollStatusResponse.resetPasswordEnabled;
-         }),
-         switchMap((orgAutoEnrollStatusResponse: OrganizationAutoEnrollStatusResponse) =>
 diff --git a/libs/angular/src/auth/guards/redirect.guard.ts b/libs/angular/src/auth/guards/redirect.guard.ts
-index 7717d325a6..8161adda75 100644
+index 5ebbbae9f0..b1caad144c 100644
 --- a/libs/angular/src/auth/guards/redirect.guard.ts
 +++ b/libs/angular/src/auth/guards/redirect.guard.ts
 @@ -17,7 +17,7 @@ export interface RedirectRoutes {
@@ -84,6 +34,32 @@ index b54529f6a2..eae6146232 100644
          this.resetPasswordAutoEnroll = autoEnrollStatus.resetPasswordEnabled;
          this.masterPasswordPolicyOptions =
            await this.policyApiService.getMasterPasswordPolicyOptsForOrgUser(autoEnrollStatus.id);
+diff --git a/libs/auth/src/angular/sso/sso.component.html b/libs/auth/src/angular/sso/sso.component.html
+index 7a3fa8db97..c726e7ff8e 100644
+--- a/libs/auth/src/angular/sso/sso.component.html
++++ b/libs/auth/src/angular/sso/sso.component.html
+@@ -4,13 +4,15 @@
+     {{ "loading" | i18n }}
+   </div>
+   <div *ngIf="!loggingIn">
+-    <bit-form-field>
+-      <bit-label>{{ "ssoIdentifier" | i18n }}</bit-label>
+-      <input bitInput type="text" formControlName="identifier" appAutofocus />
+-    </bit-form-field>
+-    <hr />
+     <div class="tw-flex tw-gap-2">
+-      <button type="submit" bitButton bitFormButton buttonType="primary" [block]="true">
++      <button
++        type="submit"
++        bitButton
++        bitFormButton
++        buttonType="primary"
++        [block]="true"
++        appAutofocus
++      >
+         {{ "continue" | i18n }}
+       </button>
+     </div>
 diff --git a/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts b/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts
 index f2d22fafcd..b27e3f0e25 100644
 --- a/libs/common/src/admin-console/models/response/organization-auto-enroll-status.response.ts
