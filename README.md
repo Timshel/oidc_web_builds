@@ -7,7 +7,10 @@
 <br>
 
 This is a repository to build custom versions of the [Bitwarden web vault](https://github.com/bitwarden/clients/tree/master/apps/web).
-This rely on prepatched version from [Vaultwarden](https://github.com/vaultwarden/vw_web_builds)
+/
+This rely on prepatched version from [Vaultwarden](https://github.com/vaultwarden/vw_web_builds).
+/
+The final patched code is available in [bitwarden_clients](https://github.com/timshel/bitwarden_clients).
 
 This generate two different versions :
 
