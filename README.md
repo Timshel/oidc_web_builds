@@ -4,12 +4,12 @@
 
 ---
 
-<br>
+#### :warning: web-vault builds for [timshel/vaultwarden](https://github.com/timshel/vaultwarden). For [timshel/OIDCWarden](https://github.com/Timshel/OIDCWarden) go to [oidc_web_vault](https://github.com/Timshel/oidc_web_vault)
 
 This is a repository to build custom versions of the [Bitwarden web vault](https://github.com/bitwarden/clients/tree/master/apps/web).
-/
+\
 This rely on prepatched version from [Vaultwarden](https://github.com/vaultwarden/vw_web_builds).
-/
+\
 The final patched code is available in [bitwarden_clients](https://github.com/timshel/bitwarden_clients).
 
 This generate two different versions :
