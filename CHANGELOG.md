@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.5.1-1
+
+- Use Vaultwarden patched [v2025.5.1](https://github.com/vaultwarden/vw_web_builds/tree/v2025.5.1) web vault as base.
+
 ## v2025.4.1-1
 
 - Use Vaultwarden patched [v2025.4.1](https://github.com/vaultwarden/vw_web_builds/tree/v2025.4.1) web vault as base.
