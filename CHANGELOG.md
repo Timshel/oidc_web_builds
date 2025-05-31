@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.5.1-2
+
+- Toggle the visibility of login fields.
+
 ## v2025.5.1-1
 
 - Use Vaultwarden patched [v2025.5.1](https://github.com/vaultwarden/vw_web_builds/tree/v2025.5.1) web vault as base.
