@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.5.1-3
+
+- ExternalId on Org and Group for SSO Organization sync
+
 ## v2025.5.1-2
 
 - Toggle the visibility of login fields.
