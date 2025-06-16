@@ -1,5 +1,9 @@
 # Changelog
 
+## v2025.6.0-1
+
+- Use Vaultwarden patched [v2025.6.0](https://github.com/vaultwarden/vw_web_builds/tree/v2025.6.0) web vault as base.
+
 ## v2025.5.1-3
 
 - ExternalId on Org and Group for SSO Organization sync
