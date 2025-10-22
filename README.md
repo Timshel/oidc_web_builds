@@ -1,3 +1,7 @@
+# :warning: With the PR merged this is not updated anymore
+
+-----------------
+
 # Web Vault OIDC builds for Vaultwarden
 
 **This project is not associated with the [Bitwarden](https://bitwarden.com/) project nor Bitwarden, Inc.**
